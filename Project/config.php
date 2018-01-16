@@ -2,7 +2,7 @@
 
 
 //Username of the Administrator
-//$admin='admin';
+$admin='newtest';
 
 
 //Logging to the database
