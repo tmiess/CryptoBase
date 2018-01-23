@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+console.log("tsetsets")
 const axios = require ('axios');
 // const queryUrl1 = "https://min-api.cryptocompare.com/data/pricemulti?fsyms=LTD,42,PBT,BTC,BCH,ETH,DASH,XMR,LTC,CND&tsyms=USD,EUR,GBP,JPY,AED,INR,CAD,AUD,SGD,BHD,BRL,CHF,CNY,HKD,IDR,IRR,KWD,KRW,MYR,MXN,SAR";
 // const queryUrl1 = "https://min-api.cryptocompare.com/data/pricemulti?fsyms=LTD,42,PBT,BTC,BCH,ETH,DASH,XMR,LTC,CND&tsyms=USD,EUR,GBP,JPY,AED,INR,CAD,AUD,SGD,BHD,BRL,CHF,CNY,HKD,IDR,IRR,KWD,KRW,MYR,MXN,SAR";
@@ -6,13 +7,16 @@ const axios = require ('axios');
 // //   console.log(cryptoCoins.data); 
 // console.log("BTC :", cryptoCoins.data.BTC.USD);
 // });
+const cryptoCurrency = ["LTD","42","PBT","BTC","BCH","ETH","DASH","XMR","LTC","CND"];
+const list_1 = cryptoCurrency.map((cryptoCur) => <option>{cryptoCur}</option>);
 
 class Query extends Component {
     state = {
-        crypto: "",
+        // crypto: list_1,
         country: "",
         cryptoQueried: "",
-        countryQueried: ""
+        countryQueried: "",
+        
     }
 
 
@@ -52,6 +56,7 @@ handleInputChange = event => {
     // Getting the value and name of the input which triggered the change
     let value = event.target.value;
     const name = event.target.name;
+    let list = event.targt.list_1;
 
     // Updating the input's state
     this.setState({
@@ -67,8 +72,14 @@ handleInputChange = event => {
           Currency: {this.state.crypto} Comparison: {this.state.country}
         </p>
         <form className="form">
+        <select>
+          <option>
+            
+          </option>
+        </select>
           <input
             value={this.state.crypto}
+            // list={cryptoCur}
             name="crypto"
             onChange={this.handleInputChange}
             type="text"
