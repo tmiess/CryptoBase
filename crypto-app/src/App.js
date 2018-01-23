@@ -101,5 +101,4 @@ class App extends Component {
     );
   }
 }
-// const App = () => <Query />;
 export default App;
