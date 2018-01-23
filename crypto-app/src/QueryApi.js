@@ -29,9 +29,9 @@ getCurrency = (event) => {
     const queryCoin = this.state.crypto;
     console.log("tester "+queryCoin);
     this.setState({
-      crypto: "",
-      country: "",
-      cryptoQueried: "",
+    //   crypto: "",
+    //   country: "",
+    //   cryptoQueried: "",
       countryQueried: response.data[currencyFromKey][currencyToKey]
   });
  
@@ -64,7 +64,7 @@ handleInputChange = event => {
     return (
       <div>
         <p>
-          Hello {this.state.crypto} {this.state.country}
+          Currency: {this.state.crypto} Comparison: {this.state.country}
         </p>
         <form className="form">
           <input
