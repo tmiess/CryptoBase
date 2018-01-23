@@ -52,15 +52,33 @@ class App extends Component {
   render() {
     return (
 
+      // <div className='container'>
+      //   <div className='row'>
+      //     <h1>30 Day Bitcoin Price Chart</h1>
+      //   </div>
+      //   <div className='row'>
+      //     { !this.state.fetchingData ?
+      //     <InfoBox data={this.state.data} />
+      //     : null }
+      //   </div>
+      //   <div className='row'>
+      //     <div className='popup'>
+      //       {this.state.hoverLoc ? <ToolTip hoverLoc={this.state.hoverLoc} activePoint={this.state.activePoint}/> : null}
+      //     </div>
+      //   </div>
+      //   <div className='row'>
+      //     <div className='chart'>
+      //       { !this.state.fetchingData ?
+      //         <LineChart data={this.state.data} onChartHover={ (a,b) => this.handleChartHover(a,b) }/>
+      //         : null }
+      //     </div>
+      //   </div>
+      //   <div className='row'>
+      //     <div id="coindesk"> Powered by <a href="http://www.coindesk.com/price/">CoinDesk</a></div>
+      //   </div>
+      // </div>
+      
       <div className='container'>
-        <div className='row'>
-          <h1>30 Day Bitcoin Price Chart</h1>
-        </div>
-        <div className='row'>
-          { !this.state.fetchingData ?
-          <InfoBox data={this.state.data} />
-          : null }
-        </div>
         <div className='row'>
           <div className='popup'>
             {this.state.hoverLoc ? <ToolTip hoverLoc={this.state.hoverLoc} activePoint={this.state.activePoint}/> : null}

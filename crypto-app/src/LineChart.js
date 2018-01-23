@@ -187,14 +187,26 @@ class LineChart extends Component {
   }
 }
 // DEFAULT PROPS
+// LineChart.defaultProps = {
+//   data: [],
+//   color: '#2196F3',
+//   pointRadius: 5,
+//   svgHeight: 300,
+//   svgWidth: 900,
+//   xLabelSize: 20,
+//   yLabelSize: 80
+// };
+
+
+// TMIESS PROPS
 LineChart.defaultProps = {
   data: [],
   color: '#2196F3',
   pointRadius: 5,
-  svgHeight: 300,
-  svgWidth: 900,
+  svgHeight: 150,
+  svgWidth: 300,
   xLabelSize: 20,
   yLabelSize: 80
-}
+};
 
 export default LineChart;
