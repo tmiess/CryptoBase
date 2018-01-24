@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-console.log("tsetsets")
 const axios = require ('axios');
 // const queryUrl1 = "https://min-api.cryptocompare.com/data/pricemulti?fsyms=LTD,42,PBT,BTC,BCH,ETH,DASH,XMR,LTC,CND&tsyms=USD,EUR,GBP,JPY,AED,INR,CAD,AUD,SGD,BHD,BRL,CHF,CNY,HKD,IDR,IRR,KWD,KRW,MYR,MXN,SAR";
 // const queryUrl1 = "https://min-api.cryptocompare.com/data/pricemulti?fsyms=LTD,42,PBT,BTC,BCH,ETH,DASH,XMR,LTC,CND&tsyms=USD,EUR,GBP,JPY,AED,INR,CAD,AUD,SGD,BHD,BRL,CHF,CNY,HKD,IDR,IRR,KWD,KRW,MYR,MXN,SAR";
@@ -8,17 +7,27 @@ const axios = require ('axios');
 // console.log("BTC :", cryptoCoins.data.BTC.USD);
 // });
 const cryptoCurrency = ["LTD","42","PBT","BTC","BCH","ETH","DASH","XMR","LTC","CND"];
-const list_1 = cryptoCurrency.map((cryptoCur) => <option>{cryptoCur}</option>);
-
+const list_1 = cryptoCurrency.map((cryptoCur) => {cryptoCur.length});
+// console.log(list_1);
 class Query extends Component {
     state = {
-        // crypto: list_1,
+        crypto: "",
         country: "",
         cryptoQueried: "",
-        countryQueried: "",
-        
+        countryQueried: ""
     }
 
+// constructor(props){
+//   super(props);
+//   this.state = {value: "BTC"};
+//   this.handleChange = this.handleChange.bind(this);
+//   this.handleSubmit = this.handleSubmit.bind(this);
+// }
+
+
+handleChange(event) {
+  this.state = ({value: event.target.value});
+}
 
     
 getCurrency = (event) => {
@@ -56,14 +65,13 @@ handleInputChange = event => {
     // Getting the value and name of the input which triggered the change
     let value = event.target.value;
     const name = event.target.name;
-    let list = event.targt.list_1;
 
     // Updating the input's state
     this.setState({
       [name]: value
     });
   };
-
+// <select value ={this.state.value} onChange={this.handleChange}>
  render() {
     // Notice how each input has a `value`, `name`, and `onChange` prop
     return (
@@ -72,19 +80,17 @@ handleInputChange = event => {
           Currency: {this.state.crypto} Comparison: {this.state.country}
         </p>
         <form className="form">
-        <select>
-          <option>
-            
-          </option>
-        </select>
+         
+        
+        
           <input
             value={this.state.crypto}
-            // list={cryptoCur}
             name="crypto"
             onChange={this.handleInputChange}
             type="text"
             placeholder="LTC"
           />
+        
           <input
             value={this.state.country}
             name="country"

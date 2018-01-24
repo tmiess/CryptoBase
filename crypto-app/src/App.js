@@ -5,6 +5,7 @@ import LineChart from './LineChart';
 import ToolTip from './ToolTip';
 import InfoBox from './InfoBox';
 import Query from './QueryApi';
+import CcDrop from "./components/Dropdown";
 
 class App extends Component {
   constructor(props) {
@@ -96,6 +97,7 @@ class App extends Component {
           <div id="coindesk"> Powered by <a href="http://www.coindesk.com/price/">CoinDesk</a></div>
         </div>
         <Query />
+        <CcDrop />
       </div>
 
     );
