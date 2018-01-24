@@ -80,9 +80,9 @@ class App extends Component {
       
       <div className='container'>
         <div className='row'>
-          <div className='popup'>
-            {this.state.hoverLoc ? <ToolTip hoverLoc={this.state.hoverLoc} activePoint={this.state.activePoint}/> : null}
-          </div>
+           <div className='popup'>
+             {this.state.hoverLoc ? <ToolTip hoverLoc={this.state.hoverLoc} activePoint={this.state.activePoint}/> : null}
+           </div>
         </div>
         <div className='row'>
           <div className='chart'>
@@ -90,9 +90,6 @@ class App extends Component {
               <LineChart data={this.state.data} onChartHover={ (a,b) => this.handleChartHover(a,b) }/>
               : null }
           </div>
-        </div>
-        <div className='row'>
-          <div id="coindesk"> Powered by <a href="http://www.coindesk.com/price/">CoinDesk</a></div>
         </div>
       </div>
 
