@@ -4,8 +4,8 @@ import './App.css';
 import LineChart from './LineChart';
 import ToolTip from './ToolTip';
 import InfoBox from './InfoBox';
-import Query from './QueryApi';
-import CcDrop from "./components/Dropdown";
+// import Query from './components/QueryApi';
+import CcDrop from './components/Dropdown';
 
 class App extends Component {
   constructor(props) {
@@ -80,25 +80,26 @@ class App extends Component {
       //   </div>
       // </div>
       
-      <div className='container'>
-        <div className='row'>
-          <div className='popup'>
-            {this.state.hoverLoc ? <ToolTip hoverLoc={this.state.hoverLoc} activePoint={this.state.activePoint}/> : null}
+        <div className='container'>
+          <div className='row'>
+            <div className='popup'>
+              {this.state.hoverLoc ? <ToolTip hoverLoc={this.state.hoverLoc} activePoint={this.state.activePoint}/> : null}
+            </div>
           </div>
-        </div>
-        <div className='row'>
-          <div className='chart'>
-            { !this.state.fetchingData ?
-              <LineChart data={this.state.data} onChartHover={ (a,b) => this.handleChartHover(a,b) }/>
-              : null }
+          <div className='row'>
+            <div className='chart'>
+              { !this.state.fetchingData ?
+                <LineChart data={this.state.data} onChartHover={ (a,b) => this.handleChartHover(a,b) }/>
+                : null }
+            </div>
           </div>
+          <div className='row'>
+            <div id="coindesk"> Powered by <a href="http://www.coindesk.com/price/">CoinDesk</a></div>
+          </div>
+          <CcDrop />
+
         </div>
-        <div className='row'>
-          <div id="coindesk"> Powered by <a href="http://www.coindesk.com/price/">CoinDesk</a></div>
-        </div>
-        <Query />
-        <CcDrop />
-      </div>
+    
 
     );
   }
