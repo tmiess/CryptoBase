@@ -1,0 +1,256 @@
+<!doctype html>
+<html>
+<head>
+    <title>Cryptocurrency</title>
+ 
+    <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+
+
+    <style>
+        /*body         { padding-top:80px; word-wrap:break-word; }*/
+    </style>
+</head>
+	<header> 
+ <nav>
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo">CryptoApp</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="sass.html">Home</a></li>
+        <li><a href="badges.html">Forum</a></li>
+        <li><a href="collapsible.html">JavaScript</a></li>
+      </ul>
+    </div>
+  </nav>
+  <style> .nav-wrapper {
+      background-color: blue;
+      font-family: 'Ubuntu', sans-serif;
+  }
+  </style>
+  </header>
+  
+<body>
+    
+    <style>
+    body {
+       background: url(http://sixpl.com/wp-content/uploads/2017/09/Blockchain-and-Cryptocurrency-Content-Writer.jpg);
+    background-size:100% 100%;  
+    }   
+    .row {
+        margin-left: 0;
+        margin-right: 0;
+    }
+    .col-md-7 {
+        margin:0 12px;
+        margin-bottom:30px;
+        margin-left:20px;
+    }
+    
+    {font-family: 'Ubuntu', sans-serif;
+    }
+        
+    </style>
+    
+    
+    <div class="container">
+	<div class="row">
+        
+       <div class="col-md-7 ">
+
+<div class="panel panel-default">
+  <div class="panel-heading">  <h4 >User Profile</h4></div>
+  
+  <style>
+      
+      h4 {
+          font-family: 'Ubuntu', sans-serif;
+      }
+  </style>
+   <div class="panel-body">
+       
+       <style>
+           .panel-body {
+               font-family: 'Ubuntu', sans-serif;
+           }
+           
+           
+       </style>
+       
+    <div class="box box-info">
+        
+            <div class="box-body">
+                     <div class="col-sm-6">
+                     <div  align="left"> <img alt="User Pic" src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg" id="profile-image1" class="img-circle img-responsive"> 
+                
+                <input id="profile-image-upload" class="hidden" type="file">
+<div style="color:#999;" >click here to change profile image</div>
+                <!--Upload Image Js And Css-->
+           
+                         <script>
+              $(function() {
+    $('#profile-image1').on('click', function() {
+        $('#profile-image-upload').click();
+    });
+});       
+              </script>
+              
+           <style>
+           .container {
+               background-color:white;
+           }
+           
+           #profile-image1 {
+    cursor: pointer;
+  
+     width: 150px;
+    height: 150px;
+	border:2px solid #03b1ce ;}
+	.tital{ font-size:16px; font-weight:500;}
+	 .bot-border{ border-bottom:1px #f8f8f8 solid;  margin:5px 0  5px 0}
+   
+           input.hidden {
+    position: absolute;
+    left: -9999px;
+}
+
+         
+                
+       </style>               
+                     
+                     </div>
+              
+              <br>
+    
+              <!-- /input-group -->
+            </div>
+            <div class="col-sm-6">
+            <h4 style="color:#00b1b1;"><%= user.local.email %> </h4></span>
+                      
+            </div>
+            <div class="clearfix"></div>
+            <hr style="margin:5px 0 5px 0;">
+    
+             
+
+<div class="col-sm-5 col-xs-6 tital " >Member Since:</div><div class="col-sm-7"></div>
+ <div class="clearfix"></div>
+<div class="bot-border"></div>
+
+<div class="col-sm-5 col-xs-6 tital " >Number of Posts:</div><div class="col-sm-7 col-xs-6 "></div>
+     <div class="clearfix"></div>
+<div class="bot-border"></div>
+
+<div class="col-sm-5 col-xs-6 tital " >Reputation:</div><div class="col-sm-7 col-xs-6 "></div>
+     <div class="clearfix"></div>
+<div class="bot-border"></div>
+
+
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+          <a href="/logout" class="btn btn-default btn-sm">Logout</a>
+
+        </div>
+     
+            
+    </div> 
+    </div>
+</div>  
+
+
+
+        <!-- LOCAL INFORMATION -->
+        <!--<div class="col-sm-6">-->
+        <!--    <div class="well">-->
+        <!--        <h3><span class="fa fa-user"></span> Local</h3>-->
+
+        <!--        <% if (user.local.email) { %>-->
+        <!--            <p>-->
+        <!--                <strong>User Name</strong>: <%= user.local.email %><br>-->
+        <!--            </p>-->
+                    
+        <!--            <a href="/unlink/local" class="btn btn-default">Unlink</a>-->
+        <!--        <% } else { %>-->
+        <!--            <a href="/connect/local" class="btn btn-default">Connect Local</a>-->
+        <!--        <% } %>-->
+
+        <!--    </div>-->
+        <!--</div>-->
+
+        <!-- FACEBOOK INFORMATION -->
+    <!--    <div class="col-sm-6">-->
+    <!--        <div class="well">-->
+    <!--            <h3 class="text-primary"><span class="fa fa-facebook"></span> Facebook</h3>-->
+
+                <!-- check if the user has this token (is the user authenticated with this social account) -->
+    <!--            <% if (user.facebook.token) { %>-->
+    <!--                <p>-->
+    <!--                    <strong>id</strong>: <%= user.facebook.id %><br>-->
+    <!--                    <strong>token</strong>: <%= user.facebook.token %><br>-->
+    <!--                    <strong>email</strong>: <%= user.facebook.email %><br>-->
+    <!--                    <strong>name</strong>: <%= user.facebook.name %><br>-->
+    <!--                </p>-->
+
+    <!--                <a href="/unlink/facebook" class="btn btn-primary">Unlink</a>-->
+    <!--            <% } else { %>-->
+    <!--                <a href="/connect/facebook" class="btn btn-primary">Connect Facebook</a>-->
+    <!--            <% } %>-->
+
+    <!--        </div>-->
+    <!--    </div>-->
+    <!--</div>-->
+    <!--<div class="row">-->
+
+        <!-- TWITTER INFORMATION -->
+    <!--    <div class="col-sm-6">-->
+    <!--        <div class="well">-->
+    <!--            <h3 class="text-info"><span class="fa fa-twitter"></span> Twitter</h3>-->
+
+    <!--            <% if (user.twitter.token) { %>-->
+    <!--                <p>-->
+    <!--                    <strong>id</strong>: <%= user.twitter.id %><br>-->
+    <!--                    <strong>token</strong>: <%= user.twitter.token %><br>-->
+    <!--                    <strong>display name</strong>: <%= user.twitter.displayName %><br>-->
+    <!--                    <strong>username</strong>: <%= user.twitter.username %>-->
+    <!--                </p>-->
+
+    <!--                <a href="/unlink/twitter" class="btn btn-info">Unlink</a>-->
+    <!--            <% } else { %>-->
+    <!--                <a href="/connect/twitter" class="btn btn-info">Connect Twitter</a>-->
+    <!--            <% } %>-->
+
+    <!--        </div>-->
+    <!--    </div>-->
+
+        <!-- GOOGLE INFORMATION -->
+    <!--    <div class="col-sm-6">-->
+    <!--        <div class="well">-->
+    <!--            <h3 class="text-danger"><span class="fa fa-google-plus"></span> Google+</h3>-->
+
+    <!--            <% if (user.google.token) { %>-->
+    <!--                <p>-->
+    <!--                    <strong>id</strong>: <%= user.google.id %><br>-->
+    <!--                    <strong>token</strong>: <%= user.google.token %><br>-->
+    <!--                    <strong>email</strong>: <%= user.google.email %><br>-->
+    <!--                    <strong>name</strong>: <%= user.google.name %>-->
+    <!--                </p>-->
+
+    <!--                <a href="/unlink/google" class="btn btn-danger">Unlink</a>-->
+    <!--            <% } else { %>-->
+    <!--                <a href="/connect/google" class="btn btn-danger">Connect Google</a>-->
+    <!--            <% } %>-->
+
+    <!--        </div>-->
+    <!--    </div>-->
+    <!--</div>-->
+
+</div>
+
+<!--<div> <a href="/logout" class="btn btn-default btn-sm">Logout</a>-->
+
+       <!--<p>Or go <a href="/">home</a>.</p></div>-->
+</body>
+
+
+</html>
