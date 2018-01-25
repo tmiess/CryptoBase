@@ -1,10 +1,10 @@
-import React from 'react';
+import React, {Component} from 'react';
 import moment from 'moment';
 import './App.css';
 import LineChart from './LineChart';
 import ToolTip from './ToolTip';
 
-class btcChart extends React.Component {
+class btcChart2 extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -71,4 +71,4 @@ class btcChart extends React.Component {
          );
   }
 }
-export default btcChart;
+export default btcChart2;
