@@ -1,16 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 import moment from 'moment';
 import './App.css';
 import LineChart from './LineChart';
 import ToolTip from './ToolTip';
-import InfoBox from './InfoBox';
-// import Query from './components/QueryApi';
-import CcDrop from './components/Dropdown';
 
-import btcApp from './components/charts/btcApp';
-
-
-class App extends Component {
+class btcChart extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -55,35 +49,8 @@ class App extends Component {
     getData();
   }
   render() {
-    return (
-
-      // <div className='container'>
-      //   <div className='row'>
-      //     <h1>30 Day Bitcoin Price Chart</h1>
-      //   </div>
-      //   <div className='row'>
-      //     { !this.state.fetchingData ?
-      //     <InfoBox data={this.state.data} />
-      //     : null }
-      //   </div>
-      //   <div className='row'>
-      //     <div className='popup'>
-      //       {this.state.hoverLoc ? <ToolTip hoverLoc={this.state.hoverLoc} activePoint={this.state.activePoint}/> : null}
-      //     </div>
-      //   </div>
-      //   <div className='row'>
-      //     <div className='chart'>
-      //       { !this.state.fetchingData ?
-      //         <LineChart data={this.state.data} onChartHover={ (a,b) => this.handleChartHover(a,b) }/>
-      //         : null }
-      //     </div>
-      //   </div>
-      //   <div className='row'>
-      //     <div id="coindesk"> Powered by <a href="http://www.coindesk.com/price/">CoinDesk</a></div>
-      //   </div>
-      // </div>
-      
-        <div className='container'>
+      return (
+          <div>
           <div className='row'>
             <div className='popup'>
               {this.state.hoverLoc ? <ToolTip hoverLoc={this.state.hoverLoc} activePoint={this.state.activePoint}/> : null}
@@ -99,13 +66,9 @@ class App extends Component {
           <div className='row'>
             <div id="coindesk"> Powered by <a href="http://www.coindesk.com/price/">CoinDesk</a></div>
           </div>
-          <CcDrop />
-          <btcApp />
-
-        </div>
-    
-
-    );
+          </div>
+          
+         );
   }
 }
-export default App;
+export default btcChart;
