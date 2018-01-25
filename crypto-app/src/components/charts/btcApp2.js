@@ -50,7 +50,7 @@ class btcChart2 extends Component {
   }
   render() {
       return (
-          <div>
+        <div className='container'>
           <div className='row'>
             <div className='popup'>
               {this.state.hoverLoc ? <ToolTip hoverLoc={this.state.hoverLoc} activePoint={this.state.activePoint}/> : null}
@@ -66,7 +66,7 @@ class btcChart2 extends Component {
           <div className='row'>
             <div id="coindesk"> Powered by <a href="http://www.coindesk.com/price/">CoinDesk</a></div>
           </div>
-          </div>
+        </div>
           
          );
   }
