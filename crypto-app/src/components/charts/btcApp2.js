@@ -1,12 +1,10 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import moment from 'moment';
 import './App.css';
 import LineChart from './LineChart';
 import ToolTip from './ToolTip';
-import InfoBox from './InfoBox';
 
-
-class App extends Component {
+class btcChart2 extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -51,8 +49,7 @@ class App extends Component {
     getData();
   }
   render() {
-    return (
-      
+      return (
         <div className='container'>
           <div className='row'>
             <div className='popup'>
@@ -66,9 +63,12 @@ class App extends Component {
                 : null }
             </div>
           </div>
+          <div className='row'>
+            <div id="coindesk"> Powered by <a href="http://www.coindesk.com/price/">CoinDesk</a></div>
+          </div>
         </div>
-
-    );
+          
+         );
   }
 }
-export default App;
+export default btcChart2;

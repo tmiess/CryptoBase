@@ -6,7 +6,7 @@ import ToolTip from './ToolTip';
 import InfoBox from './InfoBox';
 
 
-class App extends Component {
+class App4 extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -71,4 +71,4 @@ class App extends Component {
     );
   }
 }
-export default App;
+export default App4;
