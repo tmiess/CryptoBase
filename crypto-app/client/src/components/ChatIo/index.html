@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Chat Box</title>
+        <style type="text/css">
+            body{
+                background:#f9f9f9;
+            }
+            #container{
+                width:700px;
+                /*height:auto;*/
+                margin:0 auto;
+            }
+            #chatWindow{
+                height: 300px;
+            }
+            #mainWrapper{
+                display:none;
+            }
+            #chatWrapper{
+                float:left;
+                border:1px #ccc solid;
+                border-radius: 10px;
+                background: #f4f4f4;
+                padding:10px;
+            }
+            #userWrapper{
+                float:left;
+                border:1px #ccc solid;
+                border-radius: 10px; /*rounds edges*/
+                background: #f4f4f4;
+                padding:10px;
+                margin-left: 20px;
+                width: 150px;
+                max-height: 200px;
+            }
+            #namesWrapper{
+                float:left;
+                border: 1px #ccc solid;
+                border-radius: 10px;
+                background: #f4f4f4;
+                padding:10px;
+                margin-left:20px;
+                /*display:none;*/
+            }
+            input{
+                height: 30px;
+                border:solid 1px #ccc;
+                border-radius: 5px;
+            }
+        </style>
+    </head>
+    <body>
+        <div = "container">
+            <div id= "namesWrapper">
+                <h2>Crypto Talk</h2>        
+                <p>Create UserName:</p>
+                <div id="error"></div>
+                <form id= "userNameForm">
+                   <input type="text" name="" size="35" id="username"/>
+                   <input type="submit" value="Submit" />
+                </form>
+            </div>
+            <div id="mainWrapper">
+                <h2>Crypto Talk</h2>
+                <div id="chatWrapper">
+                   <div id="chatWindow">
+                    <form id="messageForm">
+                        <input type="text" name="" size="35" id="message" placeholder="Lets talk Cryto"/>
+                        <input type="submit" value="Submit"/>
+                    </form>
+                   </div>
+                </div>
+                <div id="userWrapper">
+                    <div id="users">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+<script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script>
+$(function(){
+let socket = io();//this calls line 20 in server.js
+let $messageForm = $("#messageForm"),
+    $message=$("#message"),
+    $chat=$("#chatWindow"),
+    $usernameForm=$("#userNameForm"),
+    $users=$("#users"),
+    $username=$("#username"),
+    $error=$("#error");
+    
+    $usernameForm.submit((event)=>{
+        event.preventDefault();
+        // console.log("Give me a hell, give me a yeah");
+        socket.emit("new user", $username.val(),(data)=>{
+            if(data){
+                $("#namesWrapper").hide();
+                $("#mainWrapper").show();
+            }else{
+                $error.html("Pigs don't fly right pick another name");
+            }
+        });
+        $message.val(""); //this clears the chat input window/box
+    });
+    
+    socket.on("usernames", (data)=>{
+        // console.log(data)
+        let html="";
+        data.forEach((element)=> {
+            // console.log(element);
+        html += element + "<br>";
+        
+        });
+         $users.html(html);
+    });
+    
+    $messageForm.submit((event)=>{
+        event.preventDefault();
+        console.log("this is fire B");
+        socket.emit("send message", $message.val());
+        $message.val(""); //this clears the chat input window/box
+    });
+    // $messageForm.submit(function(event){
+    //       event.preventDefault(); //Keeps page from reloading
+    //       console.log("MOFO");
+    // });
+    socket.on("new massage", (data)=>{
+        $chat.append("<strong>"+data.user+"</strong>: "+data.msg+"<br>");
+    });
+});
+// let socket = io();
+</script>
+    </body>
+</html>                                 

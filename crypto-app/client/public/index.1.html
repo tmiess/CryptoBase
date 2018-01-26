@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Chat Box</title>
+        <style type="text/css">
+            body{
+                background:#fff;
+            }
+            #container{
+                width:800px;
+                margin:0 auto;
+            }
+            #chatWindow{
+                height: 800px;
+            }
+            #mainWrapper{
+                display:none;
+            }
+            #chatWrapper{
+                float:left;
+                border: 1px #ccc solid;
+                border-radius: 10px;
+                background: #00000;
+                padding:10px;
+            }
+            #userWrapper{
+                float:left;
+                border: 1px #ccc solid;
+                border-radius: 10px;
+                background: #00000;
+                padding:10px;
+                margin-left: 20px;
+                width: 200px;
+                max-height: 400px;
+            }
+            #namesWrapper{
+                float:left;
+                border: 1px #ccc solid;
+                border-radius: 10px;
+                background: #000;
+                color: white;
+                padding:10px;
+                margin-left: 20px;
+            }
+            input{
+                height: 30px;
+            }
+        </style>
+    </head>
+    <body>
+        <div = "container">
+            <div id= "namesWrapper">
+                <h2>Crypto Talk</h2>        
+                <p>Create UserName:</p>
+                <form id= "userNameForm">
+                   <input type="text" name="" size="35" id="username"/>
+                   <input type="submit" value="submit" />
+                </form>
+            </div>
+            <div id="mainWrapper">
+                <h2>Crypto Talk</h2>
+                <div id="chatWrapper">
+                   <div ="chatWindow">
+                    <form id="messageForm">
+                        <input type="text" name="" size="35" id="message" placeholder="Lets talk Cryto"/>
+                        <input type="submit" value="submit"/>
+                    </form>
+                   </div>
+                </div>
+                <div id="userWrapper">
+                    <div id="users">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>                                 
