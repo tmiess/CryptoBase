@@ -30,6 +30,9 @@ class App1 extends Component {
           const sortedData = [];
           let count = 0;
           for (let date in bitcoinData.bpi){
+            
+            console.log("typeof price: " + typeof bitcoinData.bpi[date]);
+            
             sortedData.push({
               d: moment(date).format('MMM DD'),
               p: bitcoinData.bpi[date].toLocaleString('us-EN',{ style: 'currency', currency: 'USD' }),

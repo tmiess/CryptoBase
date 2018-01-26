@@ -2,7 +2,7 @@ import React from "react";
 
 const Learn = () =>
   <div>
-    <h1 className="text-center">I have no idea what's going on...</h1>
+    <h1 className="text-center">Crypto Facts</h1>
     <p>
       Lorem ipsum dolor sit amet, est ut enim consequat. Nostrum fastidii
       partiendo sed ne, no mutat ludus aperiri mea, per in choro dolorem
