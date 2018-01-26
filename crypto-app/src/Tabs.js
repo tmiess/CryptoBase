@@ -1,19 +1,19 @@
 import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Navpills from "./components/Navpills";
-import Home from "./components/pages/Home";
-import About from "./components/pages/About";
-import Blog from "./components/pages/Blog";
-import Contact from "./components/pages/Contact";
+import App1 from "./components/charts/chart1/App";
+import CcDrop from "./components/Dropdown";
+import Learn from "./components/FAQ";
 
-const App = () =>
+
+const Tabs = () =>
   <Router>
     <div>
       <Navpills />
-      <Route exact path="/" component={Home} />
-      <Route exact path="/talk" component={Chat} />
-      <Route exact path="/learn" component={FAQ} />
+      <Route exact path="/" component={App1} />
+      <Route exact path="/talk" component={CcDrop} />
+      <Route exact path="/learn" component={Learn} />
     </div>
   </Router>;
 
-export default App;
+export default Tabs;
