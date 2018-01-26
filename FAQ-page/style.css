@@ -6,7 +6,14 @@
     background-color:blue;
     z-index:2;
 }
-
+ul:not(.browser-default) {
+    padding-left: 30px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+ul:not(.browser-default) li {
+    list-style-type: disc;
+}
 body {
 	font: 14px/24px;
 	font-family: 'Ubuntu', sans-serif;
@@ -16,8 +23,10 @@ body {
     /*background-size: 100% */
 }
 
-/*background {*/
-/*    z-index:2;*/
+
+ul#nav-mobile  {
+    list-style-type:none;
+}
 
 
 #wrapper {
@@ -114,6 +123,7 @@ a{
 ul.section_menu{
 	background:#EDEDED;
 	padding:20px 10px;
+	list-style-type:disc;
 }
 
 h3{
@@ -128,7 +138,7 @@ dl.faq{
 		font-weight:bold;
 		color:#000000;
 		padding:25px 0 5px 0;
-		display:block;
+		/*display:block;*/
 	}
 	
 	dl.faq dd{
@@ -137,11 +147,10 @@ dl.faq{
 		display:block;
 	}
 
-#sidebar { 
-  	/*left:960px;*/
-  	position: relative;
+/*#sidebar { */
+/*  	position: relative;*/
 
-}
+/*}*/
 
 #sidebar_content {
   	position: absolute;
@@ -160,6 +169,8 @@ dl.faq{
     /*overflow-x: hidden; */
     padding-top: 20px;
     float:right;
+      	position: relative;
+
     
 }
 
@@ -168,3 +179,4 @@ dl.faq{
   top: 0;
   left:960px;
 }
+
