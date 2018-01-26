@@ -3,8 +3,6 @@ import moment from 'moment';
 import './App.css';
 import LineChart from './LineChart';
 import ToolTip from './ToolTip';
-import InfoBox from './InfoBox';
-
 
 class App3 extends Component {
   constructor(props) {

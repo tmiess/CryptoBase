@@ -203,8 +203,8 @@ LineChart.defaultProps = {
   data: [],
   color: '#2196F3',
   pointRadius: 5,
-  svgHeight: 100,
-  svgWidth: 240,
+  svgHeight: 150,
+  svgWidth: 1200,
   xLabelSize: 20,
   yLabelSize: 80
 };

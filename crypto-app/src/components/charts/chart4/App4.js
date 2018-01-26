@@ -4,7 +4,7 @@ import './App.css';
 import LineChart from './LineChart';
 import ToolTip from './ToolTip';
 
-class btcChart1 extends Component {
+class App4 extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -64,13 +64,9 @@ class btcChart1 extends Component {
                 : null }
             </div>
           </div>
-          <div className='row'>
-            <div id="coindesk"> Powered by <a href="http://www.coindesk.com/price/">CoinDesk</a></div>
-          </div>
-
         </div>
 
     );
   }
 }
-export default btcChart1;
+export default App4;

@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import moment from 'moment';
 import './App.css';
-import LineChart from './components/charts/LineChart';
-import ToolTip from './components/charts/ToolTip';
-import InfoBox from './InfoBox';
-
+import LineChart2 from './LineChart';
+import ToolTip from './ToolTip';
 
 class App2 extends Component {
   constructor(props) {
@@ -62,7 +60,7 @@ class App2 extends Component {
           <div className='row'>
             <div className='chart'>
               { !this.state.fetchingData ?
-                <LineChart data={this.state.data} onChartHover={ (a,b) => this.handleChartHover(a,b) }/>
+                <LineChart2 data={this.state.data} onChartHover={ (a,b) => this.handleChartHover(a,b) }/>
                 : null }
             </div>
           </div>
