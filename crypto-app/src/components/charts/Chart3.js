@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import moment from 'moment';
-import './App.css';
-import LineChart2 from './LineChart';
-import ToolTip from './ToolTip';
+import './chartTools/App.css';
+import LineChart from './chartTools/LineChart';
+import ToolTip from './chartTools/ToolTip';
 
-class App2 extends Component {
+class Chart3 extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -22,35 +22,35 @@ class App2 extends Component {
   }
   componentDidMount(){
     const getData = () => {
-      const url = 'https://getbridgeapp.co/api/crytoapp/testdata2';
+      const url = 'https://getbridgeapp.co/api/crytoapp/litecoinapi';
 
       fetch(url).then( r => r.json())
-        .then((ethData) => {
+        .then((ltcData) => {
           
-          const ethContainer = [];
-          ethContainer.push(ethData);
+          const ltcContainer = [];
+          ltcContainer.push(ltcData);
           
-          console.log("ethContainer[0][1]: " + ethContainer[0][0]);
-          console.log("ethData[0]: " + ethData[1]);
+          console.log("ltcContainer[0][1]: " + ltcContainer[0][0]);
+          console.log("ltcData[0]: " + ltcData[1]);
 
           const sortedData = [];
           let count = 0;
-          for (let day in ethData){
+          for (let day in ltcData){
             
-            console.log("ethData: " + ethContainer[0][0]);
-            console.log("ethContainer[0][0].date: " + ethContainer[0][0].date);
-            console.log("ethContainer[0][0].close_price: " + ethContainer[0][0].close_price);
-            console.log("ethData[0].date: " + ethData[day].date);
-            console.log("ethData[0].close_price: " + ethData[day].close_price);
-            console.log("type of ^: " + typeof ethData[day].close_price);
+            console.log("ltcData: " + ltcContainer[0][0]);
+            console.log("ltcContainer[0][0].date: " + ltcContainer[0][0].date);
+            console.log("ltcContainer[0][0].close_price: " + ltcContainer[0][0].close_price);
+            console.log("ltcData[0].date: " + ltcData[day].date);
+            console.log("ltcData[0].close_price: " + ltcData[day].close_price);
+            console.log("type of ^: " + typeof ltcData[day].close_price);
             
             sortedData.push({
-              d: moment(ethData[day].date).format('MMM DD'),
-              p: ethData[day].close_price.toLocaleString('us-EN',{ style: 'currency', currency: 'USD' }),
+              d: moment(ltcData[day].date).format('MMM DD'),
+              p: ltcData[day].close_price.toLocaleString('us-EN',{ style: 'currency', currency: 'USD' }),
               x: count, //previous days
-              y: ethData[day].close_price // numerical price
+              y: ltcData[day].close_price // numerical price
             });
-            console.log("date: " + moment(ethData[day].date).format('MMM DD'));
+            console.log("date: " + moment(ltcData[day].date).format('MMM DD'));
             console.log(sortedData);
             console.log("day: " + day);
             count++;
@@ -79,7 +79,7 @@ class App2 extends Component {
           <div className='row'>
             <div className='chart'>
               { !this.state.fetchingData ?
-                <LineChart2 data={this.state.data} onChartHover={ (a,b) => this.handleChartHover(a,b) }/>
+                <LineChart data={this.state.data} onChartHover={ (a,b) => this.handleChartHover(a,b) }/>
                 : null }
             </div>
           </div>
@@ -88,4 +88,4 @@ class App2 extends Component {
     );
   }
 }
-export default App2;
+export default Chart3;
