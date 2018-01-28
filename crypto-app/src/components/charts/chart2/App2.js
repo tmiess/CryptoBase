@@ -31,7 +31,7 @@ class App2 extends Component {
           ethContainer.push(ethData);
           
           console.log("ethContainer[0][1]: " + ethContainer[0][0]);
-          console.log("ethData[0]: " + ethData[1])
+          console.log("ethData[0]: " + ethData[1]);
 
           const sortedData = [];
           let count = 0;
