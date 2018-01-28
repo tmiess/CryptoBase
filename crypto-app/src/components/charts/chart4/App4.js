@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import moment from 'moment';
 import './App.css';
-import LineChart from './LineChart';
+import LineChart4 from './LineChart';
 import ToolTip from './ToolTip';
 
 class App4 extends Component {
@@ -22,20 +22,39 @@ class App4 extends Component {
   }
   componentDidMount(){
     const getData = () => {
-      const url = 'https://api.coindesk.com/v1/bpi/historical/close.json';
+      const url = 'https://getbridgeapp.co/api/crytoapp/rippleapi';
 
       fetch(url).then( r => r.json())
-        .then((bitcoinData) => {
+        .then((xrpData) => {
+          
+          const xrpContainer = [];
+          xrpContainer.push(xrpData);
+          
+          console.log("xrpContainer[0][1]: " + xrpContainer[0][0]);
+          console.log("xrpData[0]: " + xrpData[1])
+
           const sortedData = [];
           let count = 0;
-          for (let date in bitcoinData.bpi){
+          for (let day in xrpData){
+            
+            console.log("xrpData: " + xrpContainer[0][0]);
+            console.log("xrpContainer[0][0].date: " + xrpContainer[0][0].date);
+            console.log("xrpContainer[0][0].close_price: " + xrpContainer[0][0].close_price);
+            console.log("xrpData[0].date: " + xrpData[day].date);
+            console.log("xrpData[0].close_price: " + xrpData[day].close_price);
+            console.log("type of ^: " + typeof xrpData[day].close_price);
+            
             sortedData.push({
-              d: moment(date).format('MMM DD'),
-              p: bitcoinData.bpi[date].toLocaleString('us-EN',{ style: 'currency', currency: 'USD' }),
+              d: moment(xrpData[day].date).format('MMM DD'),
+              p: xrpData[day].close_price.toLocaleString('us-EN',{ style: 'currency', currency: 'USD' }),
               x: count, //previous days
-              y: bitcoinData.bpi[date] // numerical price
+              y: xrpData[day].close_price // numerical price
             });
+            console.log("date: " + moment(xrpData[day].date).format('MMM DD'));
+            console.log(sortedData);
+            console.log("day: " + day);
             count++;
+
           }
           this.setState({
             data: sortedData,
@@ -43,7 +62,7 @@ class App4 extends Component {
           });
         })
         .catch((e) => {
-          console.log(e);
+          console.log("there was an error with chart 2: " + e);
         });
     };
     getData();
@@ -60,7 +79,7 @@ class App4 extends Component {
           <div className='row'>
             <div className='chart'>
               { !this.state.fetchingData ?
-                <LineChart data={this.state.data} onChartHover={ (a,b) => this.handleChartHover(a,b) }/>
+                <LineChart4 data={this.state.data} onChartHover={ (a,b) => this.handleChartHover(a,b) }/>
                 : null }
             </div>
           </div>

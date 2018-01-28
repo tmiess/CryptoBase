@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import "./LineChart.css";
 
-class LineChart extends Component {
+class LineChart3 extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -199,7 +199,7 @@ class LineChart extends Component {
 
 
 // TMIESS PROPS
-LineChart.defaultProps = {
+LineChart3.defaultProps = {
   data: [],
   color: '#2196F3',
   pointRadius: 5,
@@ -209,4 +209,4 @@ LineChart.defaultProps = {
   yLabelSize: 80
 };
 
-export default LineChart;
+export default LineChart3;
