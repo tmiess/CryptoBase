@@ -1,10 +1,10 @@
 import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Navpills from "./components/Navpills";
-import App1 from "./components/charts/chart1/App";
-import App2 from "./components/charts/chart2/App2";
-import App3 from "./components/charts/chart3/App3";
-import App4 from "./components/charts/chart4/App4";
+import Chart1 from "./components/charts/Chart1";
+import Chart2 from "./components/charts/Chart2";
+import Chart3 from "./components/charts/Chart3";
+import Chart4 from "./components/charts/Chart4";
 import CcDrop from "./components/Dropdown";
 import Learn from "./components/FAQ";
 
@@ -14,12 +14,12 @@ const Tabs = () =>
     <div>
       <Navpills />
       <Route exact path="/"/>
-      <Route exact path="/BTC" component={App1}/>
-      <Route exact path="/ETH" component={App2}/>
-      <Route exact path="/LTC" component={App3}/>
-      <Route exact path="/42" component={App4}/>
-      <Route exact path="/talk" component={CcDrop} />
-      <Route exact path="/learn" component={Learn} />
+      <Route exact path="/BTC" component={Chart1}/>
+      <Route exact path="/ETH" component={Chart2}/>
+      <Route exact path="/LTC" component={Chart3}/>
+      <Route exact path="/42" component={Chart4}/>
+      <Route exact path="/talk" component={CcDrop}/>
+      <Route exact path="/learn" component={Learn}/>
     </div>
   </Router>;
 
