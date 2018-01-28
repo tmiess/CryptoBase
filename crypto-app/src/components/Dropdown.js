@@ -53,18 +53,13 @@ class CcDrop extends React.Component {
   render() {
     return (
     <div>
+    <h5>Conversion Center</h5>
       <form onSubmit={this.getCurrency}> {/*when the submit button is clicked, it call my ajax fuction that's handled by axios*/}
-        <label>
-            Cryptocurrency:
-        </label>
         <select name="crypto" className="browser-default" onChange={this.handleChange}> {/*had to use browser-default because materialize css was overiding the native funcationality of list.*/}
             <option value="defaultValue" disabled selected>Cryptocurrency</option> {/*this is used so there's a blank space in the first option in the dropdown box.*/}
             {list_1} {/*crypto list loop*/}
         </select>
-        
-        <label>
-            Country:
-        </label>
+
         <select name="country" className="browser-default" onChange={this.handleChange}>
             <option value="defaultValue" disabled selected>Country</option>
             {list_2} {/*country list loop*/}
