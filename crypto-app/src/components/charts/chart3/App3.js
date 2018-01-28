@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import moment from 'moment';
 import './App.css';
-import LineChart from './LineChart';
+import LineChart3 from './LineChart';
 import ToolTip from './ToolTip';
 
 class App3 extends Component {
@@ -22,20 +22,39 @@ class App3 extends Component {
   }
   componentDidMount(){
     const getData = () => {
-      const url = 'https://api.coindesk.com/v1/bpi/historical/close.json';
+      const url = 'https://getbridgeapp.co/api/crytoapp/litecoinapi';
 
       fetch(url).then( r => r.json())
-        .then((bitcoinData) => {
+        .then((ltcData) => {
+          
+          const ltcContainer = [];
+          ltcContainer.push(ltcData);
+          
+          console.log("ltcContainer[0][1]: " + ltcContainer[0][0]);
+          console.log("ltcData[0]: " + ltcData[1]);
+
           const sortedData = [];
           let count = 0;
-          for (let date in bitcoinData.bpi){
+          for (let day in ltcData){
+            
+            console.log("ltcData: " + ltcContainer[0][0]);
+            console.log("ltcContainer[0][0].date: " + ltcContainer[0][0].date);
+            console.log("ltcContainer[0][0].close_price: " + ltcContainer[0][0].close_price);
+            console.log("ltcData[0].date: " + ltcData[day].date);
+            console.log("ltcData[0].close_price: " + ltcData[day].close_price);
+            console.log("type of ^: " + typeof ltcData[day].close_price);
+            
             sortedData.push({
-              d: moment(date).format('MMM DD'),
-              p: bitcoinData.bpi[date].toLocaleString('us-EN',{ style: 'currency', currency: 'USD' }),
+              d: moment(ltcData[day].date).format('MMM DD'),
+              p: ltcData[day].close_price.toLocaleString('us-EN',{ style: 'currency', currency: 'USD' }),
               x: count, //previous days
-              y: bitcoinData.bpi[date] // numerical price
+              y: ltcData[day].close_price // numerical price
             });
+            console.log("date: " + moment(ltcData[day].date).format('MMM DD'));
+            console.log(sortedData);
+            console.log("day: " + day);
             count++;
+
           }
           this.setState({
             data: sortedData,
@@ -43,7 +62,7 @@ class App3 extends Component {
           });
         })
         .catch((e) => {
-          console.log(e);
+          console.log("there was an error with chart 2: " + e);
         });
     };
     getData();
@@ -60,7 +79,7 @@ class App3 extends Component {
           <div className='row'>
             <div className='chart'>
               { !this.state.fetchingData ?
-                <LineChart data={this.state.data} onChartHover={ (a,b) => this.handleChartHover(a,b) }/>
+                <LineChart3 data={this.state.data} onChartHover={ (a,b) => this.handleChartHover(a,b) }/>
                 : null }
             </div>
           </div>
