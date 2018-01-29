@@ -21,6 +21,7 @@ io.sockets.on("connection", (socket)=>{
     console.log("socket connected");
     
     socket.on("new user", (data,callback)=>{ //logic to make sure the same person can't be logged in
+    console.log("data from server.js"+ data);
         if(usernames.indexOf(data) != -1){
             callback(false);
         }else{

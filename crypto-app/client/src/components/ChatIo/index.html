@@ -13,6 +13,9 @@
             }
             #chatWindow{
                 height: 300px;
+                word-wrap: break-word;
+                overflow-y: scroll;
+                width:350px;
             }
             #mainWrapper{
                 display:none;
@@ -64,19 +67,18 @@
             <div id="mainWrapper">
                 <h2>Crypto Talk</h2>
                 <div id="chatWrapper">
-                   <div id="chatWindow">
+                   <div id="chatWindow"></div>
+                   
                     <form id="messageForm">
                         <input type="text" name="" size="35" id="message" placeholder="Lets talk Cryto"/>
                         <input type="submit" value="Submit"/>
                     </form>
-                   </div>
+                   
                 </div>
                 <div id="userWrapper">
-                    <div id="users">
-                        
-                    </div>
-                </div>
+                    <div id="users"></div>
             </div>
+            <div id="myName"></div>
         </div>
 <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
 <script src="/socket.io/socket.io.js"></script>
@@ -89,15 +91,19 @@ let $messageForm = $("#messageForm"),
     $usernameForm=$("#userNameForm"),
     $users=$("#users"),
     $username=$("#username"),
-    $error=$("#error");
+    $error=$("#error"),
+    $myName=$("myName");
     
     $usernameForm.submit((event)=>{
         event.preventDefault();
         // console.log("Give me a hell, give me a yeah");
         socket.emit("new user", $username.val(),(data)=>{
+            console.log($username.val());
+            let username = $username.val()
             if(data){
                 $("#namesWrapper").hide();
                 $("#mainWrapper").show();
+                $("#myName").html("You are logged on as: " + username);
             }else{
                 $error.html("Pigs don't fly right pick another name");
             }
