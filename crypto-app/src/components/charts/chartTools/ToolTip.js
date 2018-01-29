@@ -8,7 +8,7 @@ class ToolTip extends Component {
     const svgLocation = document.getElementsByClassName("linechart")[0].getBoundingClientRect();
 
     let placementStyles = {};
-    let width = 100;
+    let width = 50;
     placementStyles.width = width + 'px';
     placementStyles.left = hoverLoc + svgLocation.left - (width/2);
 
