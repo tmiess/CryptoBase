@@ -1,6 +1,6 @@
 import React from 'react';
 import { withRouter  } from 'react-router-dom';
-import {  NavItem } from 'react-bootstrap';
+import {  MenuItem } from 'react-bootstrap';
 
 class NavItemWithoutRouter extends React.Component {
  
@@ -16,9 +16,9 @@ class NavItemWithoutRouter extends React.Component {
     render() {
         const { to, eventKey, children, onSelect } = this.props;
         return (
-            <NavItem eventKey={eventKey} onSelect={onSelect} onClick={()=>this.handleLink(to)}>
+            <MenuItem eventKey={eventKey} onSelect={onSelect} onClick={()=>this.handleLink(to)}>
                 {children}
-            </NavItem>
+            </MenuItem>
         );
     }
 }
