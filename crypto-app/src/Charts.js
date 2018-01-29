@@ -6,7 +6,7 @@ import Chart2 from "./components/charts/Chart2";
 import Chart3 from "./components/charts/Chart3";
 import Chart4 from "./components/charts/Chart4";
 
-const Charts= () =>
+const Charts = () =>
   <Router>
     <div>
       <Navpills2 />

@@ -1,23 +1,22 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+import {Navbar, Nav, NavItem, NavDropdown, MenuItem} from 'react-bootstrap';
+import RouterNavItem from './RouterDropdown';
 const Navpills2 = () =>
 
 <div>
-  <ul className="nav nav-tabs">
-    <li className={window.location.pathname === "/BTC" ? "active" : ""}>
-      <Link to="/BTC">Bitcoin</Link>
-    </li>
-    <li className={window.location.pathname === "/ETH" ? "active" : ""}>
-      <Link to="/ETH">Ethereum</Link>
-    </li>
-    <li className={window.location.pathname === "/LTC" ? "active" : ""}>
-      <Link to="/LTC">Litecoin</Link>
-    </li>
-    <li className={window.location.pathname === "/42" ? "active" : ""}>
-      <Link to="/42">42</Link>
-    </li>
-  </ul>
+    
+      <Navbar.Collapse>
+      
+          <NavDropdown eventKey={1} title="Charts" id="basic-nav-dropdown">
+            <RouterNavItem eventKey={1.1} to="/BTC">Bitcoin</RouterNavItem>
+            <RouterNavItem eventKey={1.2} to="/ETH">Ethereum</RouterNavItem>
+            <RouterNavItem eventKey={1.3} to="/LTC">Litecoin</RouterNavItem>
+            <RouterNavItem eventKey={1.4} to="/42">42</RouterNavItem>
+          </NavDropdown>
+          
+      </Navbar.Collapse>
+      
 </div>;
 
 export default Navpills2;
