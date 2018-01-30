@@ -11,7 +11,7 @@ console.log("connected")
       var y = $(window).scrollTop();
       console.log(y)
       console.log(sidebar.offset().top)
-     if (y < 469) {
+     if (y < 100) {
         sidebar.removeClass('fixed');
       }
      
