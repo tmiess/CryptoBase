@@ -1,6 +1,6 @@
 .row {
   display: flex;
-  justify-content: center;
+  justify-content: left;
 }
 
 h1 {
@@ -8,10 +8,6 @@ h1 {
   margin: 0;
   font-weight: 700;
   color: #757575;
-}
-
-h4 {
-  text-align: center;
 }
 
 #coindesk {

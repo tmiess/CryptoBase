@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import moment from 'moment';
 import './charts/chartTools/App.css';
-import LineChart from './charts/chartTools/LineChart';
+import LineChart2 from './charts/chartTools/LineChart2';
 import ToolTip from './charts/chartTools/ToolTip';
 import { Tabs, Tab } from 'react-bootstrap';
 
-class ChartPage extends Component {
+class Charts extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -56,9 +56,11 @@ class ChartPage extends Component {
     return (
       
 <div className='container'>
-    <Tabs defaultActiveKey={1} id="price-chart-change">
-        <Tab eventKey={1} title="BTC">
               <div className='row'>
+                <h3>Price Charts</h3>
+              </div>
+              <div className='row'>
+              <h4>BTC</h4>
                 <div className='popup'>
                   {this.state.hoverLoc ? <ToolTip hoverLoc={this.state.hoverLoc} activePoint={this.state.activePoint}/> : null}
                 </div>
@@ -66,13 +68,12 @@ class ChartPage extends Component {
               <div className='row'>
                 <div className='chart'>
                   { !this.state.fetchingData ?
-                    <LineChart data={this.state.data} onChartHover={ (a,b) => this.handleChartHover(a,b) }/>
+                    <LineChart2 data={this.state.data} onChartHover={ (a,b) => this.handleChartHover(a,b) }/>
                     : null }
                 </div>
               </div>
-        </Tab>
-        <Tab eventKey={2} title="ETH">
               <div className='row'>
+              <h4>ETH</h4>
                 <div className='popup'>
                   {this.state.hoverLoc ? <ToolTip hoverLoc={this.state.hoverLoc} activePoint={this.state.activePoint}/> : null}
                 </div>
@@ -80,13 +81,25 @@ class ChartPage extends Component {
               <div className='row'>
                 <div className='chart'>
                   { !this.state.fetchingData ?
-                    <LineChart data={this.state.data} onChartHover={ (a,b) => this.handleChartHover(a,b) }/>
+                    <LineChart2 data={this.state.data} onChartHover={ (a,b) => this.handleChartHover(a,b) }/>
                     : null }
                 </div>
               </div>
-        </Tab>
-        <Tab eventKey={3} title="LTC">
               <div className='row'>
+                <div className='popup'>
+                <h4>LTC</h4>
+                  {this.state.hoverLoc ? <ToolTip hoverLoc={this.state.hoverLoc} activePoint={this.state.activePoint}/> : null}
+                </div>
+              </div>
+              <div className='row'>
+                <div className='chart'>
+                  { !this.state.fetchingData ?
+                    <LineChart2 data={this.state.data} onChartHover={ (a,b) => this.handleChartHover(a,b) }/>
+                    : null }
+                </div>
+              </div>
+              <div className='row'>
+              <h4>42</h4>
                 <div className='popup'>
                   {this.state.hoverLoc ? <ToolTip hoverLoc={this.state.hoverLoc} activePoint={this.state.activePoint}/> : null}
                 </div>
@@ -94,29 +107,13 @@ class ChartPage extends Component {
               <div className='row'>
                 <div className='chart'>
                   { !this.state.fetchingData ?
-                    <LineChart data={this.state.data} onChartHover={ (a,b) => this.handleChartHover(a,b) }/>
+                    <LineChart2 data={this.state.data} onChartHover={ (a,b) => this.handleChartHover(a,b) }/>
                     : null }
                 </div>
               </div>
-        </Tab>
-        <Tab eventKey={4} title="42">
-              <div className='row'>
-                <div className='popup'>
-                  {this.state.hoverLoc ? <ToolTip hoverLoc={this.state.hoverLoc} activePoint={this.state.activePoint}/> : null}
-                </div>
-              </div>
-              <div className='row'>
-                <div className='chart'>
-                  { !this.state.fetchingData ?
-                    <LineChart data={this.state.data} onChartHover={ (a,b) => this.handleChartHover(a,b) }/>
-                    : null }
-                </div>
-              </div>
-        </Tab>
-    </Tabs>;
 </div>
 
     );
   }
 }
-export default ChartPage;
+export default Charts;

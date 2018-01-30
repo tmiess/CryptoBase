@@ -67,8 +67,18 @@ body{
   margin-left:20px;
   display:none;
   }
+  
+#chartWrapper{
+  padding: 10px;
+  margin: 10px;
+}
 input{
   height: 30px;
   border:solid 1px #ccc;
   border-radius: 5px;
   }
+
+/*chart css*/
+#price-chart-change {
+  margin-top: 50px;
+}
