@@ -2,12 +2,15 @@ import React, { Component } from 'react';
 import { Route, Link } from 'react-router-dom';
 import { LinkContainer } from 'react-router-bootstrap';
 import { Grid, Navbar, NavItem, Nav, Jumbotron, Button } from 'react-bootstrap';
+// import socketIOClient from 'socket.io-Client';
 import './App.css';
 
 import HomePage from './HomePage';
 import ChartPage from './ChartPage';
 import FaqPage from './FaqPage';
 import ChatPage from './ChatPage';
+
+import CcDrop from './Dropdown';
 
 class App extends Component {
   render() {
@@ -38,6 +41,7 @@ class App extends Component {
                 </NavItem>
               </LinkContainer>
             </Nav>
+            <CcDrop/>
           </Grid>
         </Navbar>
         <Jumbotron>
