@@ -1,14 +1,14 @@
 import React from "react";
 import { LinkContainer } from 'react-router-bootstrap';
 import { Row, Col, Grid, Navbar, NavItem, Nav, Button } from 'react-bootstrap';
-const axios = require ('axios');
+import axios from 'axios';
 //crypto currency array that will be used to create the dropdown list.
 const cryptoCurrency = ["LTD","42","PBT","BTC","BCH","ETH","DASH","XMR","LTC","CND"];
 //function that uses .map to loop through the crypto currency array.
 const list_1 = cryptoCurrency.map((cryptoCur) => <option key={cryptoCur} value={cryptoCur}>{cryptoCur}</option>);
 // country market codes array that will be used to create the drowndown list
 const countryCode = ["USD","EUR","GBP","JPY","AED","INR","CAD","AUD","SGD","BHD","BRL","CHF","CNY","HKD","IDR","IRR","KWD","KRW","MYR","MXN","SAR"];
-//function that uses .map to loop through the country array 
+//function that uses .map to loop through the country array
 const list_2 = countryCode.map((countryCur)=> <option key={countryCur} value={countryCur}>{countryCur}</option>)
 
 //create the CcDrop component that will be exported and rendered in App.js
