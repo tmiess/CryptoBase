@@ -67,11 +67,17 @@ body{
   margin-left:20px;
   display:none;
   }
+  
+#chartWrapper{
+  padding: 10px;
+  margin: 10px;
+}
 input{
   height: 30px;
   border:solid 1px #ccc;
   border-radius: 5px;
   }
+<<<<<<< HEAD
 .nuts{
   color:white;
 }  
@@ -84,4 +90,10 @@ option{
 }
 select{
   color:black;
+=======
+
+/*chart css*/
+#price-chart-change {
+  margin-top: 80px;
+>>>>>>> 9b9f674e65cac9e5b8914c17584124f31896edcc
 }
