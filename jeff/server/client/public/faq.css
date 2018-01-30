@@ -16,18 +16,17 @@
     /*top: 0; */
     /*left: 0;*/
     /*overflow-x: hidden; */
-    padding-top: 20px;
+    /*padding-top: 20px;*/
     float:right;
      position: relative;
-     /*left:760px;*/
+     /*left:1020px;*/
 
-    
 }
 
 #sidebar.fixed {
   position: fixed;
   top: 0;
-  left:1020px;
+  left:932px;
 }
 
 #wrapper{
