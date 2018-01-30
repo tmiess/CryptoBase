@@ -1,6 +1,6 @@
 import React from "react";
 import { LinkContainer } from 'react-router-bootstrap';
-import { Row, Col, Grid, Navbar, NavItem, Nav, Button } from 'react-bootstrap';
+import { ControlLabel, FormGroup, Row, Col, Grid, Navbar, NavItem, Nav, Button } from 'react-bootstrap';
 const axios = require ('axios');
 //crypto currency array that will be used to create the dropdown list.
 const cryptoCurrency = ["LTD","42","PBT","BTC","BCH","ETH","DASH","XMR","LTC","CND"];
@@ -56,28 +56,24 @@ class CcDrop extends React.Component {
     return (
       // <Col xs={6} md={4}>
       <Navbar.Form pullRight>
+      <FormGroup controlId="formControlsSelectMultiple">
+      <ControlLabel className= "nuts">Select Country</ControlLabel>
       <form onSubmit={this.getCurrency}> {/*when the submit button is clicked, it call my ajax fuction that's handled by axios*/}
-        <label>
-            Cryptocurrency:
-        </label>
         <select name="country" onChange={this.handleChange}> {/*had to use browser-default because materialize css was overiding the native funcationality of list.*/}
             <option value="defaultValue" disabled selected>Country</option> {/*this is used so there's a blank space in the first option in the dropdown box.*/}
             {list_2} {/*crypto list loop*/}
         </select>
-        
-        <label>
-            Country:
-        </label>
+        <div> </div>
         <select name="crypto" onChange={this.handleChange}>
             <option value="defaultValue" disabled selected>Cryptocurrency</option>
             {list_1} {/*country list loop*/}
         </select>
         
         <input type="submit" value="Submit" />
+        <p className= "nuts">Current Value: ${this.state.countryQueried}</p>  {/* shows the value of the crypto currency based on whatever country is selected*/}
       </form>
-      <div>
-        Current Value: ${this.state.countryQueried} {/* shows the value of the crypto currency based on whatever country is selected*/}
-        </div>
+      </FormGroup>
+        
         </Navbar.Form>
         // </Col>
     );
