@@ -1,14 +1,14 @@
 import React from "react";
 import { LinkContainer } from 'react-router-bootstrap';
-import { ControlLabel, FormGroup, Row, Col, Grid, Navbar, NavItem, Nav, Button } from 'react-bootstrap';
-const axios = require ('axios');
+import { Row, Col, Grid, Navbar, NavItem, Nav, Button } from 'react-bootstrap';
+import axios from 'axios';
 //crypto currency array that will be used to create the dropdown list.
 const cryptoCurrency = ["LTD","42","PBT","BTC","BCH","ETH","DASH","XMR","LTC","CND"];
 //function that uses .map to loop through the crypto currency array.
 const list_1 = cryptoCurrency.map((cryptoCur) => <option key={cryptoCur} value={cryptoCur}>{cryptoCur}</option>);
 // country market codes array that will be used to create the drowndown list
 const countryCode = ["USD","EUR","GBP","JPY","AED","INR","CAD","AUD","SGD","BHD","BRL","CHF","CNY","HKD","IDR","IRR","KWD","KRW","MYR","MXN","SAR"];
-//function that uses .map to loop through the country array 
+//function that uses .map to loop through the country array
 const list_2 = countryCode.map((countryCur)=> <option key={countryCur} value={countryCur}>{countryCur}</option>)
 
 //create the CcDrop component that will be exported and rendered in App.js
@@ -56,24 +56,30 @@ class CcDrop extends React.Component {
     return (
       // <Col xs={6} md={4}>
       <Navbar.Form pullRight>
-      <FormGroup controlId="formControlsSelectMultiple">
-      <ControlLabel className= "nuts">Select Country</ControlLabel>
+      <div className= "nuts">
       <form onSubmit={this.getCurrency}> {/*when the submit button is clicked, it call my ajax fuction that's handled by axios*/}
+        <label>
+            Cryptocurrency:
+        </label>
         <select name="country" onChange={this.handleChange}> {/*had to use browser-default because materialize css was overiding the native funcationality of list.*/}
             <option value="defaultValue" disabled selected>Country</option> {/*this is used so there's a blank space in the first option in the dropdown box.*/}
             {list_2} {/*crypto list loop*/}
         </select>
-        <div> </div>
+        
+        <label>
+            Country:
+        </label>
         <select name="crypto" onChange={this.handleChange}>
             <option value="defaultValue" disabled selected>Cryptocurrency</option>
             {list_1} {/*country list loop*/}
         </select>
         
         <input type="submit" value="Submit" />
-        <p className= "nuts">Current Value: ${this.state.countryQueried}</p>  {/* shows the value of the crypto currency based on whatever country is selected*/}
       </form>
-      </FormGroup>
-        
+      <div>
+        Current Value: ${this.state.countryQueried} {/* shows the value of the crypto currency based on whatever country is selected*/}
+        </div>
+        </div>
         </Navbar.Form>
         // </Col>
     );
