@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import moment from 'moment';
-import './charts/chartTools/App.css';
-import LineChart from './charts/chartTools/LineChart';
-import ToolTip from './charts/chartTools/ToolTip';
+import './chartTools/App.css';
+import LineChart from './chartTools/LineChart';
+import ToolTip from './chartTools/ToolTip';
 
-class ChartPage extends Component {
+class Chart1 extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -68,23 +68,9 @@ class ChartPage extends Component {
                 : null }
             </div>
           </div>
-          
-        <h4>ETH</h4>
-          <div className='row'>
-            <div className='popup'>
-              {this.state.hoverLoc ? <ToolTip hoverLoc={this.state.hoverLoc} activePoint={this.state.activePoint}/> : null}
-            </div>
-          </div>
-          <div className='row'>
-            <div className='chart'>
-              { !this.state.fetchingData ?
-                <LineChart data={this.state.data} onChartHover={ (a,b) => this.handleChartHover(a,b) }/>
-                : null }
-            </div>
-          </div>
         </div>
 
     );
   }
 }
-export default ChartPage;
+export default Chart1;
