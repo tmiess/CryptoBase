@@ -77,23 +77,17 @@ input{
   border:solid 1px #ccc;
   border-radius: 5px;
   }
-<<<<<<< HEAD
+  
 .nuts{
-  color:white;
-}  
-
-.nuts{
-  color:white;
+color:white;
 }
 option{
   color:black;
 }
 select{
   color:black;
-=======
-
+}
 /*chart css*/
 #price-chart-change {
   margin-top: 80px;
->>>>>>> 9b9f674e65cac9e5b8914c17584124f31896edcc
 }
