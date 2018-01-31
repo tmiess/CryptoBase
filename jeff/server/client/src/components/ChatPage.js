@@ -3,8 +3,8 @@ import socketIOClient from 'socket.io-client';
 // import socket from 'socket.io';
 
 // const sockIo= io(8081);
-// const socket = socketIOClient(`https://crypto-forum-majidmu.c9users.io:8081`); //for home
-const socket = socketIOClient(`https://localhost:8081`);
+const socket = socketIOClient(`https://crypto-forum-majidmu.c9users.io:8081`); //for home
+// const socket = socketIOClient(`https://localhost:8081`);
 
 class ChatPage extends Component {
 
