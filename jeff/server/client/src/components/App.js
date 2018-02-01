@@ -58,7 +58,7 @@ class App extends Component {
               <Route exact path="/faq" component={FaqPage} />
               <Route exact path="/chat" component={ChatPage} />
             </Col>
-            <Col xs={6} md={2}>
+            <Col xs={6} md={2} lgOffset>
               <h3 id="charts">Live Charts</h3>
               <Chart1 />
               <Chart2 />
