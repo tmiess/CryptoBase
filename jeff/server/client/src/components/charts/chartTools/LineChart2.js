@@ -201,7 +201,7 @@ class LineChart extends Component {
 // TMIESS PROPS
 LineChart.defaultProps = {
   data: [],
-  color: '#2196F3',
+  color: '#217806',
   pointRadius: 5,
   svgHeight: 100,
   svgWidth: 200,

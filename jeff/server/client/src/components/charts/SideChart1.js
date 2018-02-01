@@ -56,12 +56,12 @@ class Chart1 extends Component {
       
         <div className='container'>
         <h4>BTC</h4>
-          <div className='row'>
+          <div className='row col'>
             <div className='popup'>
               {this.state.hoverLoc ? <ToolTip hoverLoc={this.state.hoverLoc} activePoint={this.state.activePoint}/> : null}
             </div>
-          </div>
-          <div className='row'>
+            </div>
+          <div className='row col'>
             <div className='chart'>
               { !this.state.fetchingData ?
                 <LineChart data={this.state.data} onChartHover={ (a,b) => this.handleChartHover(a,b) }/>

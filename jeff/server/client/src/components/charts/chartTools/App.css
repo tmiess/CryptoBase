@@ -1,6 +1,7 @@
 .row {
   display: flex;
-  justify-content: left;
+  justify-content: flex-start;
+  column-width: 300px;
 }
 
 h1 {
@@ -16,7 +17,7 @@ h1 {
 
 #coindesk a {
   text-decoration: none;
-  color: inherit;
+  color: #217806;
 }
 
 .popup {
