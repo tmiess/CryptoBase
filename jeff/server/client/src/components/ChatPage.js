@@ -1,10 +1,50 @@
-import React from 'react';
-// import socketIOClient from 'socket.io-Client';
+import React, { Component } from 'react';
+import socketIOClient from 'socket.io-client';
+// import socket from 'socket.io';
 
+// const sockIo= io(8081);
+const socket = socketIOClient(`https://crypto-forum-majidmu.c9users.io:8081`); //for home
+// const socket = socketIOClient(`https://localhost:8081`);
 
+class ChatPage extends Component {
 
-export default () => (
-  <div>
+  state = {
+    username: [],
+    value: "",
+    comments: [],
+
+  };
+
+  componentDidMount() {
+    socket.on('username', (data) => {
+      this.setState({
+        username: [data, ...this.state.username]
+      });
+    });
+
+    socket.on("new message", (data) => {
+      this.setState({
+        comments: [data, ...this.state.comments]
+
+      })
+    });
+  }
+  handleChangee = event => {
+    event.preventDefault();
+    this.state({
+      value: event.target.value
+    });
+  }
+
+  post = (event) => {
+    event.preventDefault();
+    socket.emit('new user', this.state.value);
+  }
+
+  render() {
+
+    return (
+      <div>
       <h1>Chat</h1>
       <div id= "container">
           <div id= "namesWrapper">
@@ -32,4 +72,8 @@ export default () => (
           </div>
       </div>
   </div>
-);
+    );
+  }
+
+}
+export default ChatPage;

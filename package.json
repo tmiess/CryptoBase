@@ -15,14 +15,10 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-preset-env": "^1.6.1",
     "concurrently": "^3.5.0",
     "nodemon": "^1.11.0"
   },
   "dependencies": {
-    "express": "^4.15.4",
-    "react-router": "^4.2.0",
-    "socket.io": "^2.0.4"
+    "express": "^4.15.4"
   }
 }
