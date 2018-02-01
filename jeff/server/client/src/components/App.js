@@ -24,25 +24,25 @@ class App extends Component {
         <Navbar inverse fixedTop>
           <Navbar.Header>
             <Navbar.Brand>
-              <Link to="/">CryptoApp</Link>
+              <Link id="logo" to="/">CryptoBase</Link>
             </Navbar.Brand>
             <Navbar.Toggle />
           </Navbar.Header>
           <Navbar.Collapse>
             <Nav>
-              <LinkContainer to="/chart">
+              <LinkContainer id="tabs" to="/chart">
                 <NavItem eventKey={1}>
-                  Chart
+                  SEE
                 </NavItem>
               </LinkContainer>
-              <LinkContainer to="/faq">
+              <LinkContainer id="tabs" to="/faq">
                 <NavItem eventKey={2}>
-                  FAQs
+                  LEARN
                 </NavItem>
               </LinkContainer>
-              <LinkContainer to="/chat">
+              <LinkContainer id="tabs" to="/chat">
                 <NavItem eventKey={3}>
-                  Chat
+                  TALK
                 </NavItem>
               </LinkContainer>
             </Nav>
@@ -59,7 +59,7 @@ class App extends Component {
               <Route exact path="/chat" component={ChatPage} />
             </Col>
             <Col xs={6} md={4}>
-              <h3>Live Charts</h3>
+              <h3 id="charts">Live Charts</h3>
               <Chart1 />
               <Chart2 />
               <Chart3 />

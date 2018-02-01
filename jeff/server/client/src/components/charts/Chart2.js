@@ -71,7 +71,6 @@ class Chart2 extends Component {
     return (
       
         <div className='container'>
-        <h4>ETH</h4>
           <div className='row'>
             <div className='popup'>
               {this.state.hoverLoc ? <ToolTip hoverLoc={this.state.hoverLoc} activePoint={this.state.activePoint}/> : null}
