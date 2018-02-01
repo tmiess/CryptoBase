@@ -1,122 +1,33 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import moment from 'moment';
 import './charts/chartTools/App.css';
 import LineChart from './charts/chartTools/LineChart';
 import ToolTip from './charts/chartTools/ToolTip';
 import { Tabs, Tab } from 'react-bootstrap';
 
-class ChartPage extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      fetchingData: true,
-      data: null,
-      hoverLoc: null,
-      activePoint: null
-    };
-  }
-  handleChartHover(hoverLoc, activePoint){
-    this.setState({
-      hoverLoc: hoverLoc,
-      activePoint: activePoint
-    });
-  }
-  componentDidMount(){
-    const getData = () => {
-      const url = 'https://api.coindesk.com/v1/bpi/historical/close.json';
+import Chart1 from './charts/Chart1';
+import Chart2 from './charts/Chart2';
+import Chart3 from './charts/Chart3';
+import Chart4 from './charts/Chart4';
 
-      fetch(url).then( r => r.json())
-        .then((bitcoinData) => {
-          const sortedData = [];
-          let count = 0;
-          for (let date in bitcoinData.bpi){
-            
-            console.log("typeof price: " + typeof bitcoinData.bpi[date]);
-            
-            sortedData.push({
-              d: moment(date).format('MMM DD'),
-              p: bitcoinData.bpi[date].toLocaleString('us-EN',{ style: 'currency', currency: 'USD' }),
-              x: count, //previous days
-              y: bitcoinData.bpi[date] // numerical price
-            });
-            count++;
-          }
-          this.setState({
-            data: sortedData,
-            fetchingData: false
-          });
-        })
-        .catch((e) => {
-          console.log(e);
-        });
-    };
-    getData();
-  }
-  render() {
-    return (
+const ChartPage = () =>
       
 <div className='container'>
     <Tabs defaultActiveKey={1} id="price-chart-change">
         <Tab eventKey={1} title="BTC">
-              <div className='row'>
-                <div className='popup'>
-                  {this.state.hoverLoc ? <ToolTip hoverLoc={this.state.hoverLoc} activePoint={this.state.activePoint}/> : null}
-                </div>
-              </div>
-              <div className='row'>
-                <div className='chart'>
-                  { !this.state.fetchingData ?
-                    <LineChart data={this.state.data} onChartHover={ (a,b) => this.handleChartHover(a,b) }/>
-                    : null }
-                </div>
-              </div>
+          <Route component={Chart1}/>
         </Tab>
         <Tab eventKey={2} title="ETH">
-              <div className='row'>
-                <div className='popup'>
-                  {this.state.hoverLoc ? <ToolTip hoverLoc={this.state.hoverLoc} activePoint={this.state.activePoint}/> : null}
-                </div>
-              </div>
-              <div className='row'>
-                <div className='chart'>
-                  { !this.state.fetchingData ?
-                    <LineChart data={this.state.data} onChartHover={ (a,b) => this.handleChartHover(a,b) }/>
-                    : null }
-                </div>
-              </div>
+          <Route component={Chart2}/>
         </Tab>
         <Tab eventKey={3} title="LTC">
-              <div className='row'>
-                <div className='popup'>
-                  {this.state.hoverLoc ? <ToolTip hoverLoc={this.state.hoverLoc} activePoint={this.state.activePoint}/> : null}
-                </div>
-              </div>
-              <div className='row'>
-                <div className='chart'>
-                  { !this.state.fetchingData ?
-                    <LineChart data={this.state.data} onChartHover={ (a,b) => this.handleChartHover(a,b) }/>
-                    : null }
-                </div>
-              </div>
+          <Route component={Chart3}/>
         </Tab>
         <Tab eventKey={4} title="42">
-              <div className='row'>
-                <div className='popup'>
-                  {this.state.hoverLoc ? <ToolTip hoverLoc={this.state.hoverLoc} activePoint={this.state.activePoint}/> : null}
-                </div>
-              </div>
-              <div className='row'>
-                <div className='chart'>
-                  { !this.state.fetchingData ?
-                    <LineChart data={this.state.data} onChartHover={ (a,b) => this.handleChartHover(a,b) }/>
-                    : null }
-                </div>
-              </div>
+          <Route component={Chart4}/>
         </Tab>
     </Tabs>;
 </div>
 
-    );
-  }
-}
 export default ChartPage;
