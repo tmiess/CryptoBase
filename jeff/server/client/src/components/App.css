@@ -12,10 +12,18 @@
 }
 
 #tabs {
-    /*font-family: 'Dhurjati', sans-serif;*/
-    font-family: 'Contrail One', cursive;
-    font-size: larger;
+    font-family: 'Dhurjati', sans-serif;
+    /*font-family: 'Contrail One', cursive;*/
+    font-size: x-large;
     color: white;
+
+}
+
+#intro {
+      /*font-family: 'Dhurjati', sans-serif;*/
+    font-family: 'Contrail One', cursive;
+    margin-top: 100px;
+    font-size: x-large;
 
 }
 
@@ -27,8 +35,8 @@
 }
 
 #charts {
-    font-family: 'Contrail One', cursive;
-    font-size: x-large;
+    font-family: 'Dhurjati', sans-serif;
+    font-size: xx-large;
 }
 
 .App {

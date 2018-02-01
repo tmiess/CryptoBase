@@ -17,7 +17,7 @@ h1 {
 
 #coindesk a {
   text-decoration: none;
-  color: #217806;
+  color: inherit;
 }
 
 .popup {

@@ -52,13 +52,13 @@ class App extends Component {
         
         <Grid>
           <Row>
-            <Col xs={12} md={8}>
+            <Col xs={12} md={10}>
               <Route exact path="/" component={HomePage} />
               <Route exact path="/chart" component={ChartPage} />
               <Route exact path="/faq" component={FaqPage} />
               <Route exact path="/chat" component={ChatPage} />
             </Col>
-            <Col xs={6} md={4}>
+            <Col xs={6} md={2}>
               <h3 id="charts">Live Charts</h3>
               <Chart1 />
               <Chart2 />
