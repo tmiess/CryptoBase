@@ -1,6 +1,6 @@
 const express = require("express");
 const path = require("path");
-const PORT = process.env.PORT || 8081;
+const PORT = process.env.PORT;
 const app = express(),
       server = require('http').Server(app),
       io = require('socket.io')(server);
@@ -13,13 +13,21 @@ if (process.env.NODE_ENV === "production") {
 
 // Send every request to the React app
 // Define any API routes before this runs
-app.get("*", function(req, res) {
-  res.sendFile(path.join(__dirname, "./client/build/index.html"));
+// app.get("*", function(req, res) {
+//   res.sendFile(path.join(__dirname, "./client/build/index.html"));
+// });
+
+
+app.get("/chat",(req,res)=> {
+    res.sendFile(__dirname + "./client/src/components/ChatPage.js"); //check here if chat doesn't load
 });
+
 
 app.listen(PORT, function() {
   console.log(`🌎 ==> Server now on port ${PORT}!`);
 });
+
+
 
 //////socket io///////
 

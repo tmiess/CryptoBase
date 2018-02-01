@@ -6,7 +6,7 @@
   "scripts": {
     "server": "node server.js",
     "client": "cd client && npm run start",
-    "start": "./node_modules/.bin/concurrently \"./node_modules/.bin/nodemon\" \"npm run client\"",
+    "start": "./node_modules/.bin/concurrently \"PORT=8081 ./node_modules/.bin/nodemon\" \"npm run client\"",
     "build": "cd client && npm run build",
     "deploy": "yarn build && git add . && git commit -m \"Building for production\" && git push heroku master",
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -15,11 +15,14 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
     "concurrently": "^3.5.0",
     "nodemon": "^1.11.0"
   },
   "dependencies": {
     "express": "^4.15.4",
+    "react-router": "^4.2.0",
     "socket.io": "^2.0.4"
   }
 }
