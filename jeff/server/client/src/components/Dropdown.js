@@ -68,7 +68,7 @@ class CcDrop extends React.Component {
             })}
           </DropdownButton>
         </Navbar.Form>
-        <Navbar.Text id="conversion" pullRight>
+        <Navbar.Text pullRight>
           Current Value: $ { this.state.countryQueried } { /* shows the value of the crypto currency based on whatever country is selected*/ }
         </Navbar.Text>
       </div>
