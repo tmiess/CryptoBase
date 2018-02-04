@@ -45,11 +45,11 @@ class ChatPage extends React.Component {
     console.log(event.target.value);
     // const { name, value } = event;
     // this.setState({ [name]: value });
-    this.setState({value: event.target.username});
+    this.setState({value: event.target.value});
   }
 
   handleSubmit = (event) => {
-    alert("hell yeah" + this.state.value)   
+    alert("hell yeah " + this.state.value)   
     this.socket.emit('new user', this.state.username);
     event.preventDefault();
   }
