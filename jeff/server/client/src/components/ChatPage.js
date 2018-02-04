@@ -1,28 +1,35 @@
-import React, { Component } from 'react';
+import React from 'react';
+import boostrap, {FormControl} from "react-bootstrap";
 import socketIOClient from 'socket.io-client';
 // import socket from 'socket.io';
 
 // const sockIo= io(8081);
-const socket = socketIOClient(`https://crypto-forum-majidmu.c9users.io:8081`); //for home
+// const socket = socketIOClient(`http://localhost:3001`); //for home
 // const socket = socketIOClient(`https://localhost:8081`);
 
-class ChatPage extends Component {
+class ChatPage extends React.Component {
+  constructor(props) {
+    super(props);
 
-  state = {
+  this.state = {
     username: "",
     message: "",
     users: [],
     messages: []
   };
+  this.handleChange = this.handleChange.bind(this);
+  this.handleSubmit = this.handleSubmit.bind(this);
+  this.socket= socketIOClient('localhost:3002')
 
+}
   componentDidMount() {
-    socket.on('new user', (data) => {
+    this.socket.on('new user', (data) => {
       this.setState({
         users: [...data, this.state.username]
       });
     });
 
-    socket.on('new message', (data) => {
+    this.socket.on('new message', (data) => {
       this.setState({
         messages: [...data, this.state.messages]
       });
@@ -30,13 +37,14 @@ class ChatPage extends Component {
   }
   
   handleChange = (event) => {
-    const { name, value } = event.target;
-    this.setState({ [name]: value });
+    // const { name, value } = event.target.username;
+    this.setState({ username: event.target.username });
   }
 
   handleSubmit = (event) => {
+    // alert("hell yeah")   
+    this.socket.emit('new user', this.state.username);
     event.preventDefault();
-    socket.emit('new user', this.state.username);
   }
 
   render() {
@@ -62,8 +70,8 @@ class ChatPage extends Component {
                         })}
                      </div>
                       <form id="messageForm">
-                          <input type="text" name="message" size="35" id="message" value={this.state.message} onChange={this.handleChange} placeholder="Lets talk Cryto" />
-                          <input type="submit" value="Submit" />
+                          <FormControl type="text" placeholder="Lets talk Cryto" onChange={this.handleChange} />
+                          
                       </form>
                   </div>
                   <div id="userWrapper">
