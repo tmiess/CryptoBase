@@ -8,26 +8,27 @@ import socketIOClient from 'socket.io-client';
 // const socket = socketIOClient(`https://localhost:8081`);
 
 class ChatPage extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
   this.state = {
     username: "",
     message: "",
-    users: [],
+    // users: [],
     messages: []
       }
   this.handleChange = this.handleChange.bind(this);
-  console.log(this) 
-  // this.handleSubmit = this.handleSubmit.bind(this);
+  // console.log(this) 
+  this.handleSubmit = this.handleSubmit.bind(this);
   // this.socket= socketIOClient('http://localhost:3002')
 
 }
   componentDidMount() {
     // this.socket.on('new user', (data) => {
       const {username} = this.state;
-      const socket = socketIOClient('http://localhost:3002');
+      const socket = socketIOClient('http://localhost:3001');
       socket.on('new message', (data) => this.setState({ username:data }));
+      console.log(socket)
       // this.setState({
       //   users: [...data, this.state.username]
       // });
@@ -41,13 +42,14 @@ class ChatPage extends React.Component {
   }
   
   handleChange = (event) => {
-    console.log(event.target.name);
-    const { name, value } = event;
-    this.setState({ [name]: value });
+    console.log(event.target.value);
+    // const { name, value } = event;
+    // this.setState({ [name]: value });
+    this.setState({value: event.target.username});
   }
 
   handleSubmit = (event) => {
-    // alert("hell yeah")   
+    alert("hell yeah" + this.state.value)   
     this.socket.emit('new user', this.state.username);
     event.preventDefault();
   }
@@ -63,7 +65,7 @@ class ChatPage extends React.Component {
                     <div id="error"></div>
                     <form id= "userNameForm" onSubmit={this.handleSubmit}>
                     <label>                  
-                       <input type="text" size="35" id="username" value={this.state.username} onChange={this.handleChange}/>
+                       <input type="text" size="35" id="username" value={this.state.value} onChange={this.handleChange}/>
                       </label>
                       <input type="submit" value="Submit" />                    
                     </form>

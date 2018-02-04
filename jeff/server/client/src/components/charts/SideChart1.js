@@ -46,7 +46,7 @@ class Chart1 extends Component {
           });
         })
         .catch((e) => {
-          console.log(e);
+          // console.log(e);
         });
     };
     getData();

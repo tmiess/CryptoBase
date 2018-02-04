@@ -31,7 +31,7 @@ class Charts extends Component {
           let count = 0;
           for (let date in bitcoinData.bpi){
             
-            console.log("typeof price: " + typeof bitcoinData.bpi[date]);
+            // console.log("typeof price: " + typeof bitcoinData.bpi[date]);
             
             sortedData.push({
               d: moment(date).format('MMM DD'),
@@ -47,7 +47,7 @@ class Charts extends Component {
           });
         })
         .catch((e) => {
-          console.log(e);
+          // console.log(e);
         });
     };
     getData();

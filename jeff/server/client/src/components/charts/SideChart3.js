@@ -30,19 +30,19 @@ class Chart3 extends Component {
           const ltcContainer = [];
           ltcContainer.push(ltcData);
           
-          console.log("ltcContainer[0][1]: " + ltcContainer[0][0]);
-          console.log("ltcData[0]: " + ltcData[1]);
+          // console.log("ltcContainer[0][1]: " + ltcContainer[0][0]);
+          // console.log("ltcData[0]: " + ltcData[1]);
 
           const sortedData = [];
           let count = 0;
           for (let day in ltcData){
             
-            console.log("ltcData: " + ltcContainer[0][0]);
-            console.log("ltcContainer[0][0].date: " + ltcContainer[0][0].date);
-            console.log("ltcContainer[0][0].close_price: " + ltcContainer[0][0].close_price);
-            console.log("ltcData[0].date: " + ltcData[day].date);
-            console.log("ltcData[0].close_price: " + ltcData[day].close_price);
-            console.log("type of ^: " + typeof ltcData[day].close_price);
+            // console.log("ltcData: " + ltcContainer[0][0]);
+            // console.log("ltcContainer[0][0].date: " + ltcContainer[0][0].date);
+            // console.log("ltcContainer[0][0].close_price: " + ltcContainer[0][0].close_price);
+            // console.log("ltcData[0].date: " + ltcData[day].date);
+            // console.log("ltcData[0].close_price: " + ltcData[day].close_price);
+            // console.log("type of ^: " + typeof ltcData[day].close_price);
             
             sortedData.push({
               d: moment(ltcData[day].date).format('MMM DD'),
@@ -50,9 +50,9 @@ class Chart3 extends Component {
               x: count, //previous days
               y: ltcData[day].close_price // numerical price
             });
-            console.log("date: " + moment(ltcData[day].date).format('MMM DD'));
-            console.log(sortedData);
-            console.log("day: " + day);
+            // console.log("date: " + moment(ltcData[day].date).format('MMM DD'));
+            // console.log(sortedData);
+            // console.log("day: " + day);
             count++;
 
           }
