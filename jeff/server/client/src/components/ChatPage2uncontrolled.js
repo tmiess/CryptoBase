@@ -11,24 +11,24 @@ class ChatPage extends React.Component {
   constructor(props) {
     super(props);
 
-  this.state = {
-    value: "",
-    message: "",
-    users: [],
-    messages: []
-      }
-  this.handleChange = this.handleChange.bind(this);
+  // this.state = {
+  //   username: "",
+  //   message: "",
+  //   // users: [],
+  //   messages: []
+  //     }
+  // this.handleChange = this.handleChange.bind(this);
   // console.log(this) 
   this.handleSubmit = this.handleSubmit.bind(this);
   // this.socket= socketIOClient('http://localhost:3002')
 
 }
-  componentDidMount() {
-    // this.socket.on('new user', (data) => {
-      const {value} = this.state;
-      const socket = socketIOClient('http://localhost:3001');
-      socket.on('new message', (data) => this.setState({ username:data }));
-      console.log(socket)
+  // componentDidMount() {
+  //   // this.socket.on('new user', (data) => {
+  //     const {username} = this.state;
+  //     const socket = socketIOClient('http://localhost:3001');
+  //     socket.on('new message', (data) => this.setState({ username:data }));
+  //     console.log(socket)
       // this.setState({
       //   users: [...data, this.state.username]
       // });
@@ -38,19 +38,20 @@ class ChatPage extends React.Component {
   //     this.setState({
   //       messages: [...data, this.state.messages]
   //     });
-  //   });
-  }
+  // //   });
+  // }
   
-  handleChange = (event) => {
-    console.log(event.target.value);
-    // const { name, value } = event;
-    // this.setState({ [name]: value });
-    this.setState({value: event.target.value});
-  }
+  // handleChange = (event) => {
+  //   console.log(event.target.value);
+  //   // const { name, value } = event;
+  //   // this.setState({ [name]: value });
+  //   this.setState({value: event.target.value});
+  // }
 
   handleSubmit = (event) => {
-    alert("hell yeah" + this.state.value)   
-    this.socket.emit('new user', this.state.value);
+    console.log(event)
+    alert("hell yeah " + this.input.value);   
+    this.socket.emit('new user', this.state.username);
     event.preventDefault();
   }
 
@@ -65,21 +66,21 @@ class ChatPage extends React.Component {
                     <div id="error"></div>
                     <form id= "userNameForm" onSubmit={this.handleSubmit}>
                     <label>                  
-                       <input type="text" size="35" id="username" value={this.state.value} onChange={this.handleChange}/>
+                       <input type="text" size="35" id="username" ref={(input) => this.input = input} />
                       </label>
                       <input type="submit" value="Submit" />                    
                     </form>
               </div>
               <div id="mainWrapper">
                   <h2>Crypto Talk</h2>
-                    <div id="chatWrapper">
+                    {/*<div id="chatWrapper">
                      <div id="chatWindow">
                        {this.state.messages.map(message => {
                           return (<div>{message.username}: {message.message}</div>);
                         })}
                      </div>                      
                                         
-                  </div>
+                  </div>*/}
                   <div id="userWrapper">
                       <div id="users"></div>
                   </div>
