@@ -48,12 +48,12 @@ io.on("connection", (socket) => {
 
     socket.on("new user", (data, callback) => { //logic to make sure the same person can't be logged in
         console.log("data from server.js" + data);
-        console.log("callback", callback);
+        // console.log("callback", callback);
         if (usernames.indexOf(data) != -1) {
           return  callback(false);
         }
         else {
-            callback(true); // if it is true
+            // return callback(true); // if it is true
             socket.username = data; // then grab the user's data then
             usernames.push(socket.username); //and put it in the usernames array
             updateUsernames();
