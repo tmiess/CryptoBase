@@ -1,11 +1,11 @@
 import React from 'react';
 // import boostrap, {FormControl} from "react-bootstrap";
-// import socketIOClient from 'socket.io-client';
-import socket from 'socket.io-client'
+import socketIOClient from 'socket.io-client';
+// import socket from 'socket.io-client'
 // import socket from 'socket.io';
 
 // const sockIo= io(8081);
-// const socket = socketIOClient(`http://localhost:3001`); //for home
+const socket = socketIOClient(`http://localhost:3001`); //for home
 // const socket = socketIOClient(`https://localhost:8081`);
 
 class ChatPage extends React.Component {
@@ -29,8 +29,9 @@ class ChatPage extends React.Component {
     // this.socket.on('new user', (data) => {
       // const {value} = this.state;
       // const socket = socketIOClient('http://localhost:3001');
-      // socket.on('new message', (data) => this.setState({ username:data }));
+      socket.on('new message', (data) => this.setState({ username:data }));
       // console.log("this is your client socket speaking ")
+      
      this._handleMessageEvent()
   }
   
@@ -79,9 +80,7 @@ class ChatPage extends React.Component {
                   <h2>Crypto Talk</h2>
                     <div id="chatWrapper">
                      <div id="chatWindow">
-                       {this.state.message.map(message => {
-                          return (<div>{message.username}: {message.message}</div>);
-                        })}
+                       
                      </div>                      
                                         
                   </div>
