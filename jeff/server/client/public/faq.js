@@ -1,5 +1,5 @@
 
-console.log("connected")
+// console.log("connected")
 
     $(document).ready(function() {
         var sidebar = $('#sidebar');

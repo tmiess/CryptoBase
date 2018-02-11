@@ -1,6 +1,7 @@
 import React from 'react';
 // import boostrap, {FormControl} from "react-bootstrap";
-import socketIOClient from 'socket.io-client';
+// import socketIOClient from 'socket.io-client';
+import socket from 'socket.io-client'
 // import socket from 'socket.io';
 
 // const sockIo= io(8081);
@@ -14,44 +15,48 @@ class ChatPage extends React.Component {
   this.state = {
     value: "",
     message: "",
-    users: [],
-    messages: []
+    // users: [],
+    // messages: []
       }
   this.handleChange = this.handleChange.bind(this);
   // console.log(this) 
   this.handleSubmit = this.handleSubmit.bind(this);
   // this.socket= socketIOClient('http://localhost:3002')
+  this._handleMessageEvent = this._handleMessageEvent.bind(this)
 
 }
   componentDidMount() {
     // this.socket.on('new user', (data) => {
-      const {value} = this.state;
-      const socket = socketIOClient('http://localhost:3001');
-      socket.on('new message', (data) => this.setState({ username:data }));
-      console.log(socket)
-      // this.setState({
-      //   users: [...data, this.state.username]
-      // });
-    // });
-
-  //   this.socket.on('new message', (data) => {
-  //     this.setState({
-  //       messages: [...data, this.state.messages]
-  //     });
-  //   });
+      // const {value} = this.state;
+      // const socket = socketIOClient('http://localhost:3001');
+      // socket.on('new message', (data) => this.setState({ username:data }));
+      // console.log("this is your client socket speaking ")
+     this._handleMessageEvent()
   }
+  
+  _handleMessageEvent(){
+       socket.on('chat message', (inboundMessage) => {
+         this.props.newMessage({user: 'test_user', message: inboundMessage})
+          })
+       }
+
   
   handleChange = (event) => {
     console.log(event.target.value);
-    // const { name, value } = event;
-    // this.setState({ [name]: value });
     this.setState({value: event.target.value});
   }
 
-  handleSubmit = (event) => {
-    alert("hell yeah" + this.state.value)   
-    this.socket.emit('new user', this.state.value);
+  handleSubmit(event){
+    console.log("this is the event " + event)
     event.preventDefault();
+    socket.emit("new user", {message: this.state.value})  
+    // this.socket.emit(event.target.value);
+    // let username = this.socket.emit(this.state.value)
+    this.setState({ value: ""})
+
+    console.log("What's happening MOFO")
+
+    
   }
 
   render() {
@@ -74,7 +79,7 @@ class ChatPage extends React.Component {
                   <h2>Crypto Talk</h2>
                     <div id="chatWrapper">
                      <div id="chatWindow">
-                       {this.state.messages.map(message => {
+                       {this.state.message.map(message => {
                           return (<div>{message.username}: {message.message}</div>);
                         })}
                      </div>                      

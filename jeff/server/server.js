@@ -2,8 +2,8 @@ const express = require("express");
 const logger = require("morgan");
 const path = require("path");
 
-const PORT = process.env.PORT;
-
+// const PORT = process.env.PORT || 3001 || 3002 || 3003;
+const PORT = 3001
 const app = express(),
     server = require('http').Server(app),
     io = require('socket.io')(server);
@@ -18,8 +18,11 @@ if (process.env.NODE_ENV === "production") {
 
 // Send every request to the React app
 // Define any API routes before this runs
+app.get("*", (req, res) => {
+    res.sendFile(__dirname + "/client/src/components/ChatPage.js"); //check here if chat doesn't load
+});
 // app.get("*", function(req, res) {
-//   res.sendFile(path.join(__dirname, "./client/build/index.html"));
+//   res.sendFile(path.join(__dirname, "/client/build/index.html"));
 // });
 
 app.use(function(req, res, next) {
@@ -28,9 +31,9 @@ app.use(function(req, res, next) {
     next();
 });
 
-app.get("/chat", (req, res) => {
-    res.sendFile(__dirname + "./client/src/components/ChatPage.js"); //check here if chat doesn't load
-});
+// app.get("*", (req, res) => {
+//     res.sendFile(__dirname + "/client/src/components/ChatPage.js"); //check here if chat doesn't load
+// });
 
 server.listen(PORT, function() {
     console.log(`🌎 ==> Server now on port ${PORT}!`);
@@ -40,13 +43,14 @@ server.listen(PORT, function() {
 
 //////socket io///////
 
-io.sockets.on("connection", (socket) => {
+io.on("connection", (socket) => {
     console.log("socket connected");
 
     socket.on("new user", (data, callback) => { //logic to make sure the same person can't be logged in
         console.log("data from server.js" + data);
+        console.log("callback", callback);
         if (usernames.indexOf(data) != -1) {
-            callback(false);
+          return  callback(false);
         }
         else {
             callback(true); // if it is true
