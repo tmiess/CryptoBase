@@ -5,6 +5,8 @@ import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap-theme.css';
 import './index.css';
 import App from './components/App';
+// import io from socket.io;
+import socketIOClient from 'socket.io';
 
 ReactDOM.render(
     <Router><App /></Router>,
