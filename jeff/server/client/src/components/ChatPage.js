@@ -15,6 +15,7 @@ class ChatPage extends React.Component {
   this.state = {
     value: "",
     message: "",
+    usernames:"",
     // users: [],
     // messages: []
       }
@@ -29,9 +30,9 @@ class ChatPage extends React.Component {
     // this.socket.on('new user', (data) => {
       // const {value} = this.state;
       // const socket = socketIOClient('http://localhost:3001');
-      socket.on('new message', (data) => this.setState({ username:data }));
+      socket.on('new message', (data) => this.setState({ usernames:data }));
       // console.log("this is your client socket speaking ")
-      
+
      this._handleMessageEvent()
   }
   
@@ -48,9 +49,9 @@ class ChatPage extends React.Component {
   }
 
   handleSubmit(event){
-    console.log("this is the event " + event)
+    // console.log("this is the event " + event.target)
     event.preventDefault();
-    socket.emit("new user", {message: this.state.value})  
+    socket.emit("new user", {usernames: this.state.value})  
     // this.socket.emit(event.target.value);
     // let username = this.socket.emit(this.state.value)
     this.setState({ value: ""})
@@ -71,7 +72,7 @@ class ChatPage extends React.Component {
                     <div id="error"></div>
                     <form id= "userNameForm" onSubmit={this.handleSubmit}>
                     <label>                  
-                       <input type="text" size="35" id="username" value={this.state.value} onChange={this.handleChange}/>
+                       <input type="text" size="35" id="usernames" value={this.state.value} onChange={this.handleChange}/>
                       </label>
                       <input type="submit" value="Submit" />                    
                     </form>

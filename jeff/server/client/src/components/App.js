@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Route, Link } from 'react-router-dom';
 import { LinkContainer } from 'react-router-bootstrap';
 import { Grid, Row, Col, Navbar, NavItem, Nav, Jumbotron, Button } from 'react-bootstrap';
+import socketIOClient from 'socket.io';
 // import socketIOClient from 'socket.io-Client';
 import './App.css';
 
