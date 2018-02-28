@@ -12,10 +12,8 @@ Created entirely with React, CryptoBase is an online crypto-community for expert
 
 ### Jump To
 [Introduction](#introduction)
-#### Introduction
-#### See
-#### Learn
-#### Talk
+
+[Features](#features)
 
 # Introduction
 Anyone has the freedom to explore CryptoBase. The only feature that requires user authentication is CryptoChat, which we will get to later.
@@ -34,7 +32,7 @@ Or you can interact with live price charts on the right side of the page.
 
 - - - -
 
-### Features
+# Features
 
 #### See
 
