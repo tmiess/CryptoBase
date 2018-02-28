@@ -35,6 +35,10 @@ Let's explore some of the features, starting with "See". Here you can interact w
 
 ![see](https://raw.githubusercontent.com/tmiess/CryptoBase/master/CryptoBase/Cryptobase_chart.PNG)
 
+*These charts were modeled after [**Brandon Morelli's**](https://github.com/bmorelli25) tutorial (thank you, Brandon) on how to build a real time Bitcoin price chart using React, SVG, and the CoinDesk API. You can read about how he did it [here](https://codeburst.io/how-i-built-an-interactive-30-day-bitcoin-price-graph-with-react-and-an-api-6fe551c2ab1d)*
+
+To build our price charts for Ethereum, Litecoin, and Ripple, we had to build our own APIs using [**Bridge**](https://getbridgeapp.co/), as CoinDesk does not currently have an API for those currencies.
+
 #### Learn
 
 ![faq](https://raw.githubusercontent.com/tmiess/CryptoBase/master/CryptoBase/Cryptobase_faq.PNG)
