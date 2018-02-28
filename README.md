@@ -13,8 +13,8 @@ Created entirely with React, CryptoBase is an online crypto-community for expert
 
 [Features](#features)
 - [See](#see)
-- [Talk](#talk)
 - [Learn](#learn)
+- [Talk](#talk)
 
 [Tools](#tools)
 
