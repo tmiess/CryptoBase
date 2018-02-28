@@ -35,16 +35,22 @@ Let's explore some of the features, starting with "See". Here you can interact w
 
 ![see](https://raw.githubusercontent.com/tmiess/CryptoBase/master/CryptoBase/Cryptobase_chart.PNG)
 
-*These charts were modeled after [**Brandon Morelli's**](https://github.com/bmorelli25) tutorial (thank you, Brandon) on how to build a real time Bitcoin price chart using React, SVG, and the CoinDesk API. You can read about how he did it [here](https://codeburst.io/how-i-built-an-interactive-30-day-bitcoin-price-graph-with-react-and-an-api-6fe551c2ab1d)*
+*To build these charts, we followed [**Brandon Morelli's**](https://github.com/bmorelli25) (thank you, Brandon!) tutorial on how to construct a real time Bitcoin price chart using React, SVG, and the CoinDesk API. You can read about how he did it [here](https://codeburst.io/how-i-built-an-interactive-30-day-bitcoin-price-graph-with-react-and-an-api-6fe551c2ab1d).*
 
-To build our price charts for Ethereum, Litecoin, and Ripple, we had to build our own APIs using [**Bridge**](https://getbridgeapp.co/), as CoinDesk does not currently have an API for those currencies.
+CoinDesk does not currently have an API for those currencies, so to build our price charts for Ethereum, Litecoin, and Ripple, we had to build our own APIs using [**Bridge**](https://getbridgeapp.co/).
 
 #### Learn
 
+Now let's move on to "Learn". This is a simple yet comprehensive FAQs page built for users of any background. Whether you have never heard of terms like "blockchain" or simply want a refresher on some of these topics, this is your place to learn more about the world of cryptocurrency.
+
 ![faq](https://raw.githubusercontent.com/tmiess/CryptoBase/master/CryptoBase/Cryptobase_faq.PNG)
+
+The page is user friendly, as you can easily jump to any section, no matter where you are currently located.
 
 ![faq2](https://raw.githubusercontent.com/tmiess/CryptoBase/master/CryptoBase/Cryptobase_faq2.PNG)
 
 #### Talk
+
+The last and perhaps most important feature is CryptoChat. Here you can visit different boards in order to discuss as many topics as users can think of. In order to participate in this community, you will first need to create a username and password.
 
 ![chat](https://raw.githubusercontent.com/tmiess/CryptoBase/master/CryptoBase/Cryptobase_chat.PNG)
