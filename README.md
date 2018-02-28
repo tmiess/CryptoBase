@@ -14,6 +14,14 @@ Created entirely with React, CryptoBase is an online crypto-community for expert
 [Introduction](#introduction)
 
 [Features](#features)
+- [See](#see)
+- [Talk](#talk)
+- [Learn](#learn)
+
+[Tools](#features)
+
+[Authors](#features)
+
 
 # Introduction
 Anyone has the freedom to explore CryptoBase. The only feature that requires user authentication is CryptoChat, which we will get to later.
@@ -60,13 +68,14 @@ The last and perhaps most important feature is CryptoChat. Here you can visit di
 
 ![chat](https://raw.githubusercontent.com/tmiess/CryptoBase/master/CryptoBase/Cryptobase_chat.PNG)
 
-#### Built With
-React
-React-Bootstrap (UI)
-Node
-Yarn
-CoinDesk API
-Bridge API
-Socket.IO
+# Tools
+- React
+- React-Bootstrap (UI)
+- Node
+- Yarn
+- CoinDesk API
+- Bridge API
+- Socket.IO
 
-#### Contributors
+# Authors
+Take a look at who make [contributions](https://github.com/tmiess/CryptoBase/graphs/contributors) to this project.
