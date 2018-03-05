@@ -76,4 +76,4 @@ The last and perhaps most important feature is CryptoChat. Here you can visit di
 - Socket.IO
 
 # Authors
-Take a look at who make [contributions](https://github.com/tmiess/CryptoBase/graphs/contributors) to this project.
+Take a look at who makes [contributions](https://github.com/tmiess/CryptoBase/graphs/contributors) to this project.
